@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/song1-other2.wav-b4e56f471c5222fd31b1f4af7d65cdcc.sample"
+
+[deps]
+
+source_file="res://sounds/song1/song1-other2.wav"
+dest_files=[ "res://.import/song1-other2.wav-b4e56f471c5222fd31b1f4af7d65cdcc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

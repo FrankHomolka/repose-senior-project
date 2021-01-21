@@ -1,9 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/grass.material" type="Material" id=1]
 [ext_resource path="res://assets/colorPurple.material" type="Material" id=2]
 [ext_resource path="res://scripts/FlowerPurple.gd" type="Script" id=3]
 [ext_resource path="res://sounds/jingle.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/song1/song1-bass2.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/song1/song1-other2.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/song1/song1-harmony1.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/song1/song1-melody2.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/song1/song1-melody1.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/song1/song1-bass1.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/song1/song1-harmony2.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/song1/song1-perc2.wav" type="AudioStream" id=12]
+[ext_resource path="res://sounds/song1/song1-other1.wav" type="AudioStream" id=13]
+[ext_resource path="res://sounds/song1/song1-perc1.wav" type="AudioStream" id=14]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "flower_purpleA"
@@ -54,4 +64,34 @@ shape = SubResource( 2 )
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="song1bass1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="song1bass2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="song1harmony1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="song1harmony2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="song1melody1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="song1melody2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="song1other1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="song1other2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="song1perc1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="song1perc2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 [connection signal="body_entered" from="." to="." method="_on_FlowerPurple_body_entered"]

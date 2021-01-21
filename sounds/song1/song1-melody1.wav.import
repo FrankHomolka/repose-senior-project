@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/song1-melody1.wav-60ac52803ff4bb8e1c45e3052745107d.sample"
+
+[deps]
+
+source_file="res://sounds/song1/song1-melody1.wav"
+dest_files=[ "res://.import/song1-melody1.wav-60ac52803ff4bb8e1c45e3052745107d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
