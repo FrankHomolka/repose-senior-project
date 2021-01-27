@@ -22,6 +22,9 @@ onready var ground_check = $GroundCheck
 func _ready():
 	Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
 
+remote func _set_position(pos):
+	global_transform.origin = pos
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
@@ -57,4 +60,7 @@ func _physics_process(delta):
 	movement.x = h_velocity.x + gravity_vec.x
 	movement.y = gravity_vec.y
 	
-	move_and_slide(movement, Vector3.UP)
+	if direction != Vector3():
+		if is_network_master():
+			move_and_slide(movement, Vector3.UP)
+		rpc_unreliable("_set_position", global_transform.origin)

@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Final Project"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://scripts/Globals.gd"
+
 [input]
 
 move_forward={
