@@ -1,0 +1,18 @@
+[remap]
+
+importer="hterrain_packed_texture_importer"
+type="StreamTexture"
+path.s3tc="res://.import/HeightmapTest_slot0_normal_roughness.packed_tex-60b2fb94b7dd73959227bc7e51a74994.s3tc.stex"
+path.etc2="res://.import/HeightmapTest_slot0_normal_roughness.packed_tex-60b2fb94b7dd73959227bc7e51a74994.etc2.stex"
+
+[deps]
+
+source_file="res://TerrainTextures/HeightmapTest_slot0_normal_roughness.packed_tex"
+dest_files=[ "res://.import/HeightmapTest_slot0_normal_roughness.packed_tex-60b2fb94b7dd73959227bc7e51a74994.s3tc.stex", "res://.import/HeightmapTest_slot0_normal_roughness.packed_tex-60b2fb94b7dd73959227bc7e51a74994.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+flags/repeat=1
+flags/filter=true
+flags/mipmaps=true
