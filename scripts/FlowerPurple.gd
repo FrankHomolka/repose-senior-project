@@ -45,6 +45,7 @@ func _process(delta):
 
 
 func _on_FlowerPurple_body_entered(body):
+	print(body.name)
 	if body.name == "Player":
 		print('flowr')
 		transition = true
