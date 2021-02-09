@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/NewFPS.gd" type="Script" id=1]
+[ext_resource path="res://models/Fox.dae" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 3.0
@@ -15,6 +16,7 @@ script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+visible = false
 mesh = SubResource( 1 )
 material/0 = null
 
@@ -35,3 +37,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52625, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
 enabled = true
 cast_to = Vector3( 0, -1.5, 0 )
+
+[node name="Fox" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.51803, 0 )
