@@ -11,7 +11,7 @@ func _on_ButtonHost_pressed():
 func _on_ButtonJoin_pressed():
 	var net = NetworkedMultiplayerENet.new()
 	# change ip for multiple computers
-	net.create_client("127.0.0.1", 6969)
+	net.create_client("192.168.1.5", 6969)
 	get_tree().set_network_peer(net)
 
 func _player_connected(id):
