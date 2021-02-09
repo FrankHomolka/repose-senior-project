@@ -16,6 +16,8 @@ var movement = Vector3()
 var gravity_vec = Vector3()
 var input_dir = Vector3()
 
+var stunned = false
+
 onready var head = $Head
 onready var ground_check = $GroundCheck
 
@@ -30,6 +32,18 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+
+#puppet func stun():
+#	stunned = true
+#	print('stunned ' + String(get_tree().get_network_unique_id()))
+#
+#master func exploded(by_who):
+#	if stunned:
+#		return
+#
+#	rpc("stun")
+#
+#	stun()
 
 func _physics_process(delta):
 	direction = Vector3()
@@ -47,6 +61,8 @@ func _physics_process(delta):
 		h_acceleration = normal_acceleration
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or ground_check.is_colliding()):
+		#rpc("exploded", get_tree().get_network_unique_id())
+		#print(get_tree().get_network_unique_id())
 		gravity_vec = Vector3.UP * jump
 	
 	input_dir.z = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")

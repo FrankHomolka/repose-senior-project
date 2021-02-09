@@ -8,6 +8,7 @@ var counter = 0
 var oldVolume = 1
 var newVolume = 0
 var transition = false
+var transitionSpeed = 0.1#0.003
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,8 @@ func _ready():
 	$song1other2.play()
 	$song1other2.set_volume_db(linear2db(0.0))
 
+remote func _transition_music(trans):
+	transition = trans
 
 func _process(delta):
 	if transition and oldVolume > 0 and newVolume < 1:
@@ -40,13 +43,14 @@ func _process(delta):
 		$song1bass2.set_volume_db(linear2db(newVolume))
 		$song1other1.set_volume_db(linear2db(oldVolume))
 		$song1other2.set_volume_db(linear2db(newVolume))
-		oldVolume -= 0.001
-		newVolume += 0.001
-
+		oldVolume -= transitionSpeed
+		newVolume += transitionSpeed
 
 func _on_FlowerPurple_body_entered(body):
-	print(body.name)
-	if body.name == "Player":
-		print('flowr')
+	print('body name = ' + body.name)
+	print('unique id = ' + String(get_tree().get_network_unique_id()))
+	if body.name == String(get_tree().get_network_unique_id()):
+		rpc("_transition_music", true)
+		print('successful flower collision')
 		transition = true
 		$Jingle.play()
