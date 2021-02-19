@@ -1,10 +1,10 @@
 extends KinematicBody
 
 var mouse_sensitivity = 0.03
-var h_acceleration = 6
+var h_acceleration = 16
 var air_acceleration = 1
-var normal_acceleration = 6
-var gravity = 20
+var normal_acceleration = 16
+var gravity = 28
 var jump = 10
 var full_contact = false
 
