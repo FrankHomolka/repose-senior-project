@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://t_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://TerrainTextures/HeightmapTest_slot2_albedo_bump.packed_tex" type="Texture" id=10]
 [ext_resource path="res://TerrainTextures/HeightmapTest_slot0_normal_roughness.packed_tex" type="Texture" id=11]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=12]
-[ext_resource path="res://assets/FlowerPurple.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/GreenCanister.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/GreenCounter.gd" type="Script" id=15]
+[ext_resource path="res://assets/GreenMarker.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -30,7 +32,7 @@ textures = [ [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResourc
 script = ExtResource( 12 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.843382, 0.537314, 0, -0.537314, -0.843382, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, -0.975362, 0.220612, 0, -0.220612, -0.975362, 0, 0, 0 )
 light_color = Color( 1, 0.968627, 0.611765, 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -59,10 +61,34 @@ shader_params/u_globalmap_blend_distance = null
 shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 
 [node name="Player1Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8419, 34.8503, 138.333 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 293.285, 73.6068, 237.29 )
 
 [node name="Player2Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.2923, 34.8503, 138.333 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 301.882, 70.5084, 253.911 )
 
-[node name="FlowerPurple" parent="." instance=ExtResource( 13 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 56.2596, 24.3255, 135.351 )
+[node name="GreenCanister" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 312.612, 73.2446, 247.963 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1026.0
+margin_bottom = 597.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenCounter" type="Label" parent="Control"]
+margin_left = 919.408
+margin_top = 3.5636
+margin_right = 1020.41
+margin_bottom = 76.5636
+text = "Test"
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenMarker" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.037, 68.3295, 259.088 )
+[connection signal="greenCanisterCollected" from="GreenCanister" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="greenCanisterPlaced" from="GreenMarker" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]

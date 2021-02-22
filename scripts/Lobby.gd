@@ -15,6 +15,7 @@ func _on_ButtonJoin_pressed():
 	get_tree().set_network_peer(net)
 
 func _player_connected(id):
+	print('player connected')
 	Globals.player2id = id
 	var game = preload("res://assets/HeightmapTest.tscn").instance() #
 	get_tree().get_root().add_child(game)
