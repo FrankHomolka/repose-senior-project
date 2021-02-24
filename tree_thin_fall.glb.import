@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/tree_thin_fall.glb-9dd85f21227439b291197fa9fd397958.scn"
+path="res://.import/tree_thin_fall.glb-335c99b8e35f7f9f3151199fa2bd7ff1.scn"
 
 [deps]
 
-source_file="res://assets/tree_thin_fall.glb"
-dest_files=[ "res://.import/tree_thin_fall.glb-9dd85f21227439b291197fa9fd397958.scn" ]
+source_file="res://tree_thin_fall.glb"
+dest_files=[ "res://.import/tree_thin_fall.glb-335c99b8e35f7f9f3151199fa2bd7ff1.scn" ]
 
 [params]
 

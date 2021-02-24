@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/flower_purpleA.glb-db4a514bbd86ce6286633f1ddd8a7acf.scn"
+path="res://.import/flower_purpleA.glb-a60e1348d05c06eecd605f692bc700fe.scn"
 
 [deps]
 
-source_file="res://assets/flower_purpleA.glb"
-dest_files=[ "res://.import/flower_purpleA.glb-db4a514bbd86ce6286633f1ddd8a7acf.scn" ]
+source_file="res://models/flower_purpleA.glb"
+dest_files=[ "res://.import/flower_purpleA.glb-a60e1348d05c06eecd605f692bc700fe.scn" ]
 
 [params]
 

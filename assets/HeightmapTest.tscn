@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://t_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://scripts/GreenCounter.gd" type="Script" id=15]
 [ext_resource path="res://assets/GreenMarker.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/AudioManager.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/BlueCanister.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scripts/BlueCounter.gd" type="Script" id=19]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -101,6 +103,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control2" type="Control" parent="."]
+margin_right = 1026.0
+margin_bottom = 597.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueCounter" type="Label" parent="Control2"]
+margin_left = 920.408
+margin_top = 24.5636
+margin_right = 1021.41
+margin_bottom = 97.5636
+text = "Test"
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GreenMarker" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.037, 68.3295, 259.088 )
 markerSound = "Bass"
@@ -125,23 +145,41 @@ markerSound = "Other"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.3, 76.5323, 234.333 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 17 )]
+
+[node name="BlueCanister" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 294.777, 72.8683, 226.234 )
+
+[node name="BlueCanister2" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 303.683, 74.7801, 212.156 )
 [connection signal="greenCanisterCollected" from="GreenCanister" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister2" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister3" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister4" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister5" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
-[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="blueCanisterPlaced" from="GreenMarker" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker2" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker2" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker3" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker3" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker4" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker4" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker5" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker5" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterCollected" from="BlueCanister" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister2" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]

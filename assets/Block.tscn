@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/dirt.material" type="Material" id=1]
-[ext_resource path="res://assets/grass.material" type="Material" id=2]
+[ext_resource path="res://models/dirt.material" type="Material" id=1]
+[ext_resource path="res://models/grass.material" type="Material" id=2]
+
+
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "cliff_block_rock"
