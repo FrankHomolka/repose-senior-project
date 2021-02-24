@@ -11,7 +11,7 @@ func _on_GreenCanister_collected():
 	emit_signal("numGreenCanistersCollected", greenCanisters)
 	setText(greenCanisters)
 
-func _on_GreenMarker_greenCanisterPlaced():
+func _on_GreenMarker_greenCanisterPlaced(markerSound):
 	greenCanisters -= 1
 	emit_signal("numGreenCanistersCollected", greenCanisters)
 	setText(greenCanisters)

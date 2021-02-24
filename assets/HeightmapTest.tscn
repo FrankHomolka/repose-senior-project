@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://t_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -12,9 +12,11 @@
 [ext_resource path="res://TerrainTextures/HeightmapTest_slot2_albedo_bump.packed_tex" type="Texture" id=10]
 [ext_resource path="res://TerrainTextures/HeightmapTest_slot0_normal_roughness.packed_tex" type="Texture" id=11]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=12]
+[ext_resource path="res://assets/TreeTest.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/GreenCanister.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/GreenCounter.gd" type="Script" id=15]
 [ext_resource path="res://assets/GreenMarker.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/AudioManager.tscn" type="PackedScene" id=17]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -69,6 +71,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 301.882, 70.5084, 253.911 )
 [node name="GreenCanister" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 312.612, 73.2446, 247.963 )
 
+[node name="GreenCanister2" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 312.612, 76.4687, 237.159 )
+
+[node name="GreenCanister3" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 320.091, 71.0501, 257.511 )
+
+[node name="GreenCanister4" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 322.013, 75.2842, 240.998 )
+
+[node name="GreenCanister5" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 312.612, 77.3881, 225.529 )
+
 [node name="Control" type="Control" parent="."]
 margin_right = 1026.0
 margin_bottom = 597.0
@@ -89,6 +103,45 @@ __meta__ = {
 
 [node name="GreenMarker" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.037, 68.3295, 259.088 )
+markerSound = "Bass"
+
+[node name="GreenMarker2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 314.773, 68.3295, 268.851 )
+markerSound = "Melody"
+
+[node name="GreenMarker3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 298.28, 65.4353, 259.088 )
+markerSound = "Harmony"
+
+[node name="GreenMarker4" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 304.117, 72.6046, 241.609 )
+markerSound = "Percussion"
+
+[node name="GreenMarker5" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 303.878, 69.0093, 250.733 )
+markerSound = "Other"
+
+[node name="TreeTest" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.3, 76.5323, 234.333 )
+
+[node name="AudioManager" parent="." instance=ExtResource( 17 )]
 [connection signal="greenCanisterCollected" from="GreenCanister" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
+[connection signal="greenCanisterCollected" from="GreenCanister2" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
+[connection signal="greenCanisterCollected" from="GreenCanister3" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
+[connection signal="greenCanisterCollected" from="GreenCanister4" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
+[connection signal="greenCanisterCollected" from="GreenCanister5" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="greenCanisterPlaced" from="GreenMarker" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker2" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker3" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker4" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker5" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]

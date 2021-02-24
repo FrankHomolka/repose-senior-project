@@ -3,19 +3,30 @@ extends Area
 signal greenCanisterPlaced
 var canPlace = false
 var placed = false
+export var markerSound = 'test' setget marker_sound_set, marker_sound_get
 
 func _ready():
 	visible = false
 	#pass
 
+func marker_sound_set(new_value):
+	markerSound = new_value
+#	match(new_value):
+#		'$TestSound':
+#			markerSound = $TestSound
+#		'$TestSound2':
+#			markerSound = $TestSound2
+
+func marker_sound_get():
+	return markerSound
+
 remote func _placed_canister():
 	if !placed:
 		placed = true
-		$TestSound.play()
 		$FlowerTest.visible = true
 		$OmniLight.visible = false
 		$MeshInstance.visible = false
-		emit_signal("greenCanisterPlaced")
+		emit_signal("greenCanisterPlaced", markerSound)
 
 func _on_GreenCounter_numGreenCanistersCollected(numCanisters):
 	if !placed:
@@ -31,7 +42,7 @@ func _process(delta):
 		$MeshInstance.visible = false
 		$FlowerTest.visible = true
 		placed = true
-		emit_signal("greenCanisterPlaced")
+		emit_signal("greenCanisterPlaced", markerSound)
 		rpc("_placed_canister")
 
 func _on_GreenMarker_body_entered(body):
