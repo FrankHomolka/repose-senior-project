@@ -76,3 +76,23 @@ func _on_GreenMarker_greenCanisterPlaced(markerSound):
 		'Other':
 			$song1other1.set_volume_db(linear2db(1.0))
 	print(markerSound)
+
+
+func _on_GreenMarker_blueCanisterPlaced(markerSound):
+	match(markerSound):
+		'Bass':
+			$song1bass1.set_volume_db(linear2db(0.0))
+			$song1bass2.set_volume_db(linear2db(1.0))
+		'Melody':
+			$song1melody1.set_volume_db(linear2db(0.0))
+			$song1melody2.set_volume_db(linear2db(1.0))
+		'Percussion':
+			$song1perc1.set_volume_db(linear2db(0.0))
+			$song1perc2.set_volume_db(linear2db(1.0))
+		'Harmony':
+			$song1harmony1.set_volume_db(linear2db(0.0))
+			$song1harmony2.set_volume_db(linear2db(1.0))
+		'Other':
+			$song1other1.set_volume_db(linear2db(0.0))
+			$song1other2.set_volume_db(linear2db(1.0))
+	print(markerSound)
