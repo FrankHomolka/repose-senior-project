@@ -8,6 +8,7 @@ func _ready():
 
 func _on_GreenCanister_collected():
 	greenCanisters += 1
+	$PickupSound.play()
 	emit_signal("numGreenCanistersCollected", greenCanisters)
 	setText(greenCanisters)
 

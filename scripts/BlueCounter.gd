@@ -13,6 +13,7 @@ func _on_BlueCanister_blueCanisterCollected():
 	blueCanisters += 1
 	emit_signal("numBlueCanistersCollected", blueCanisters)
 	setText(blueCanisters)
+	$PickupSound.play()
 
 func _on_GreenMarker_blueCanisterPlaced(markerSound):
 	print('blue minus 1')

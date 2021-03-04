@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://t_data/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -12,13 +12,14 @@
 [ext_resource path="res://TerrainTextures/HeightmapTest_slot2_albedo_bump.packed_tex" type="Texture" id=10]
 [ext_resource path="res://TerrainTextures/HeightmapTest_slot0_normal_roughness.packed_tex" type="Texture" id=11]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=12]
-[ext_resource path="res://assets/TreeTest.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scripts/BubbleManager.gd" type="Script" id=13]
 [ext_resource path="res://assets/GreenCanister.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/GreenCounter.gd" type="Script" id=15]
 [ext_resource path="res://assets/GreenMarker.tscn" type="PackedScene" id=16]
 [ext_resource path="res://assets/AudioManager.tscn" type="PackedScene" id=17]
 [ext_resource path="res://assets/BlueCanister.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scripts/BlueCounter.gd" type="Script" id=19]
+[ext_resource path="res://sounds/jingle.wav" type="AudioStream" id=20]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -31,6 +32,15 @@ tonemap_mode = 3
 script = ExtResource( 3 )
 mode = 0
 textures = [ [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 4 ) ], [ ExtResource( 11 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ) ] ]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+params_blend_mode = 2
+params_cull_mode = 2
+albedo_color = Color( 0.682353, 0.882353, 1, 1 )
+
+[sub_resource type="SphereMesh" id=5]
+material = SubResource( 4 )
 
 [node name="HeightmapTest" type="Spatial"]
 script = ExtResource( 12 )
@@ -103,6 +113,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PickupSound" type="AudioStreamPlayer" parent="Control/GreenCounter"]
+stream = ExtResource( 20 )
+
 [node name="Control2" type="Control" parent="."]
 margin_right = 1026.0
 margin_bottom = 597.0
@@ -120,6 +133,9 @@ script = ExtResource( 19 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PickupSound" type="AudioStreamPlayer" parent="Control2/BlueCounter"]
+stream = ExtResource( 20 )
 
 [node name="GreenMarker" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.037, 68.3295, 259.088 )
@@ -141,50 +157,117 @@ markerSound = "Percussion"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 303.878, 69.0093, 250.733 )
 markerSound = "Other"
 
-[node name="TreeTest" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.3, 76.5323, 234.333 )
-
 [node name="AudioManager" parent="." instance=ExtResource( 17 )]
 
 [node name="BlueCanister" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 294.777, 72.8683, 226.234 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 290.873, 71.2734, 220.036 )
+
+[node name="BlueCanister15" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.642, 70.2361, 221.753 )
+
+[node name="BlueCanister14" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 297.59, 73.3019, 220.615 )
+
+[node name="BlueCanister13" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 294.742, 72.8683, 226.111 )
+
+[node name="BlueCanister12" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 290.324, 71.3256, 231.764 )
+
+[node name="BlueCanister11" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 292.117, 69.9514, 214.139 )
+
+[node name="BlueCanister10" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 310.757, 76.8614, 218.988 )
+
+[node name="BlueCanister9" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 299.603, 72.0845, 211.856 )
+
+[node name="BlueCanister8" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 301.569, 74.1366, 219.472 )
+
+[node name="BlueCanister7" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 301.965, 73.828, 226.234 )
+
+[node name="BlueCanister6" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 294.777, 72.8683, 236.373 )
+
+[node name="BlueCanister5" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 294.499, 72.8683, 217.722 )
+
+[node name="BlueCanister4" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 287.355, 72.8683, 226.234 )
 
 [node name="BlueCanister2" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 303.683, 74.7801, 212.156 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 303.683, 74.7801, 213.08 )
+
+[node name="BlueCanister3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 306.475, 76.2697, 228.249 )
+
+[node name="BubbleManager" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 311.155, 76.7789, 232.026 )
+script = ExtResource( 13 )
+
+[node name="BubbleMesh" type="MeshInstance" parent="BubbleManager"]
+mesh = SubResource( 5 )
+material/0 = null
 [connection signal="greenCanisterCollected" from="GreenCanister" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister2" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister3" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister4" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
 [connection signal="greenCanisterCollected" from="GreenCanister5" to="Control/GreenCounter" method="_on_GreenCanister_collected"]
-[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="Control/GreenCounter" to="GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="Control2/BlueCounter" to="GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="blueCanisterPlaced" from="GreenMarker" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker2" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker2" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker3" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker3" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker4" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker4" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker5" to="Control2/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker5" to="Control/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterCollected" from="BlueCanister" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister15" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister14" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister13" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister12" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister11" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister10" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister9" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister8" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister7" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister6" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister5" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister4" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanister2" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterCollected" from="BlueCanister3" to="Control2/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]

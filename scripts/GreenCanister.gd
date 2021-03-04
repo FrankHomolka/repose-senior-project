@@ -8,7 +8,6 @@ func _ready():
 	pass # Replace with function body.
 
 remote func _collected():
-	
 	if !emitted:
 		emit_signal("greenCanisterCollected")
 		emitted = true
