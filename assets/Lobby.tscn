@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://title.png" type="Texture" id=2]
+[ext_resource path="res://background.png" type="Texture" id=3]
 
 [node name="Lobby" type="Node2D"]
 script = ExtResource( 1 )
@@ -24,5 +26,16 @@ text = "Join"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="title" type="Sprite" parent="."]
+position = Vector2( 507.536, 160.513 )
+scale = Vector2( 0.330868, 0.330868 )
+texture = ExtResource( 2 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 517.213, 303.712 )
+scale = Vector2( 0.538763, 0.56243 )
+z_index = -1
+texture = ExtResource( 3 )
 [connection signal="pressed" from="ButtonHost" to="." method="_on_ButtonHost_pressed"]
 [connection signal="pressed" from="ButtonJoin" to="." method="_on_ButtonJoin_pressed"]
