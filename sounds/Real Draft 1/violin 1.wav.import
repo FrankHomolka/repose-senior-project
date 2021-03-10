@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/violin 1.wav-faf0de85dc38c7c38bf5adddb8c30b54.sample"
+
+[deps]
+
+source_file="res://sounds/Real Draft 1/violin 1.wav"
+dest_files=[ "res://.import/violin 1.wav-faf0de85dc38c7c38bf5adddb8c30b54.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

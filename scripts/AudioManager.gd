@@ -5,35 +5,62 @@ var oldVolume = 1
 var newVolume = 0
 var transition = false
 var transitionSpeed = 0.003
-var percussionLvl = 0
+
 var bassLvl = 0
-var harmonyLvl = 0
-var melodyLvl = 0
-var otherLvl = 0
+var guitarLvl = 0
+var pianoLvl = 0
+var slideLvl = 0
+var violinLvl = 0
+
+onready var bass1 = $bass1
+onready var bass2 = $bass2
+onready var bass3 = $bass3
+onready var guitar1 = $guitar1
+onready var guitar2 = $guitar2
+onready var guitar3 = $guitar3
+onready var piano1 = $piano1
+onready var piano2 = $piano2
+onready var piano3 = $piano3
+onready var slide1 = $slide1
+onready var slide2 = $slide2
+onready var slide3 = $slide3
+onready var violin1 = $violin1
+onready var violin2 = $violin2
+onready var violin3 = $violin3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if is_network_master(): # added for testing on one pc
-		$song1harmony1.play()
-		$song1harmony2.play()
-		$song1harmony1.set_volume_db(linear2db(0.0))
-		$song1harmony2.set_volume_db(linear2db(0.0))
-		$song1melody1.play()
-		$song1melody2.play()
-		$song1melody1.set_volume_db(linear2db(0.0))
-		$song1melody2.set_volume_db(linear2db(0.0))
-		$song1perc1.play()
-		$song1perc2.play()
-		$song1perc1.set_volume_db(linear2db(0.0))
-		$song1perc2.set_volume_db(linear2db(0.0))
-		$song1bass1.play()
-		$song1bass2.play()
-		$song1bass1.set_volume_db(linear2db(0.0))
-		$song1bass2.set_volume_db(linear2db(0.0))
-		$song1other1.play()
-		$song1other2.play()
-		$song1other1.set_volume_db(linear2db(0.0))
-		$song1other2.set_volume_db(linear2db(0.0))
+		bass1.play()
+		bass2.play()
+		bass3.play()
+		bass1.set_volume_db(linear2db(0.0))
+		bass2.set_volume_db(linear2db(0.0))
+		bass3.set_volume_db(linear2db(0.0))
+		guitar1.play()
+		guitar2.play()
+		guitar3.play()
+		guitar1.set_volume_db(linear2db(0.0))
+		guitar2.set_volume_db(linear2db(0.0))
+		guitar3.set_volume_db(linear2db(0.0))
+		piano1.play()
+		piano2.play()
+		piano3.play()
+		piano1.set_volume_db(linear2db(0.0))
+		piano2.set_volume_db(linear2db(0.0))
+		piano3.set_volume_db(linear2db(0.0))
+		slide1.play()
+		slide2.play()
+		slide3.play()
+		slide1.set_volume_db(linear2db(0.0))
+		slide2.set_volume_db(linear2db(0.0))
+		slide3.set_volume_db(linear2db(0.0))
+		violin1.play()
+		violin2.play()
+		violin3.play()
+		violin1.set_volume_db(linear2db(0.0))
+		violin2.set_volume_db(linear2db(0.0))
+		violin3.set_volume_db(linear2db(0.0))
 
 remote func _transition_music(trans):
 	transition = trans
@@ -66,33 +93,63 @@ func _process(delta):
 func _on_GreenMarker_greenCanisterPlaced(markerSound):
 	match(markerSound):
 		'Bass':
-			$song1bass1.set_volume_db(linear2db(1.0))
+			bassLvl += 1
+			bass1.set_volume_db(linear2db(1.0))
 		'Melody':
-			$song1melody1.set_volume_db(linear2db(1.0))
+			violinLvl += 1
+			violin1.set_volume_db(linear2db(1.0))
 		'Percussion':
-			$song1perc1.set_volume_db(linear2db(1.0))
+			guitarLvl += 1
+			guitar1.set_volume_db(linear2db(1.0))
 		'Harmony':
-			$song1harmony1.set_volume_db(linear2db(1.0))
+			pianoLvl += 1
+			piano1.set_volume_db(linear2db(1.0))
 		'Other':
-			$song1other1.set_volume_db(linear2db(1.0))
+			slideLvl += 1
+			slide1.set_volume_db(linear2db(1.0))
 	print(markerSound)
 
 
 func _on_GreenMarker_blueCanisterPlaced(markerSound):
 	match(markerSound):
 		'Bass':
-			$song1bass1.set_volume_db(linear2db(0.0))
-			$song1bass2.set_volume_db(linear2db(1.0))
+			if bassLvl == 1:
+				bass1.set_volume_db(linear2db(0.0))
+				bass2.set_volume_db(linear2db(1.0))
+			elif bassLvl == 2:
+				bass2.set_volume_db(linear2db(0.0))
+				bass3.set_volume_db(linear2db(1.0))
+			bassLvl += 1
 		'Melody':
-			$song1melody1.set_volume_db(linear2db(0.0))
-			$song1melody2.set_volume_db(linear2db(1.0))
+			if violinLvl == 1:
+				violin1.set_volume_db(linear2db(0.0))
+				violin2.set_volume_db(linear2db(1.0))
+			elif violinLvl == 2:
+				violin2.set_volume_db(linear2db(0.0))
+				violin3.set_volume_db(linear2db(1.0))
+			violinLvl += 1
 		'Percussion':
-			$song1perc1.set_volume_db(linear2db(0.0))
-			$song1perc2.set_volume_db(linear2db(1.0))
+			if guitarLvl == 1:
+				guitar1.set_volume_db(linear2db(0.0))
+				guitar2.set_volume_db(linear2db(1.0))
+			elif guitarLvl == 2:
+				guitar2.set_volume_db(linear2db(0.0))
+				guitar3.set_volume_db(linear2db(1.0))
+			guitarLvl += 1
 		'Harmony':
-			$song1harmony1.set_volume_db(linear2db(0.0))
-			$song1harmony2.set_volume_db(linear2db(1.0))
+			if pianoLvl == 1:
+				piano1.set_volume_db(linear2db(0.0))
+				piano2.set_volume_db(linear2db(1.0))
+			elif pianoLvl == 2:
+				piano2.set_volume_db(linear2db(0.0))
+				piano3.set_volume_db(linear2db(1.0))
+			pianoLvl += 1
 		'Other':
-			$song1other1.set_volume_db(linear2db(0.0))
-			$song1other2.set_volume_db(linear2db(1.0))
+			if slideLvl == 1:
+				slide1.set_volume_db(linear2db(0.0))
+				slide2.set_volume_db(linear2db(1.0))
+			elif slideLvl == 2:
+				slide2.set_volume_db(linear2db(0.0))
+				slide3.set_volume_db(linear2db(1.0))
+			slideLvl += 1
 	print(markerSound)

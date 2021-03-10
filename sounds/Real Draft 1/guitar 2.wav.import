@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/guitar 2.wav-ec853a80e2f2f5591a7af229178fcff1.sample"
+
+[deps]
+
+source_file="res://sounds/Real Draft 1/guitar 2.wav"
+dest_files=[ "res://.import/guitar 2.wav-ec853a80e2f2f5591a7af229178fcff1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/YellowMarker.gd" type="Script" id=1]
 [ext_resource path="res://assets/FlowerTest.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sounds/jingle.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/Real Draft 1/harmonica-yellow.wav" type="AudioStream" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 2.06421

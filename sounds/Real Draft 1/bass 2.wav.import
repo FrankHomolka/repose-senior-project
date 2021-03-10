@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bass 2.wav-80d66d3d4b9e212b14f3f7e1aaa35920.sample"
+
+[deps]
+
+source_file="res://sounds/Real Draft 1/bass 2.wav"
+dest_files=[ "res://.import/bass 2.wav-80d66d3d4b9e212b14f3f7e1aaa35920.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
