@@ -6,7 +6,9 @@ var numBlueCanisters = 0
 var numBlueCanistersPlaced = 0
 var canPlace = false
 var placed = false
+var scaleFactor = 1.5
 export var markerSound = 'test' setget marker_sound_set, marker_sound_get
+onready var interactText = $InteractText
 
 func _ready():
 	visible = false
@@ -24,6 +26,10 @@ remote func _placed_canister():
 		$MeshInstance.visible = false
 		emit_signal("greenCanisterPlaced", markerSound)
 		numBlueCanistersPlaced += 1
+		if numBlueCanistersPlaced < 2:
+			$InteractText.text = "Press 'E' to grow"
+		else:
+			$InteractText.text = ""
 		match(markerSound):
 			'Bass':
 				var tree = preload('res://assets/Tree1.tscn').instance()
@@ -44,15 +50,24 @@ remote func _placed_canister():
 remote func _placed_blue_canister():
 	print('client side blue canister placed')
 	emit_signal("blueCanisterPlaced", markerSound)
-	set_scale(scale * 1.2)
+	set_scale(scale * scaleFactor)
+	numBlueCanistersPlaced += 1
+	if numBlueCanistersPlaced < 2:
+		$InteractText.text = "Press 'E' to grow"
+	else:
+		$InteractText.text = ""
 
 func _process(delta):
 	if numBlueCanisters > 0 && Input.is_action_just_pressed("interact") && placed && canPlace && numBlueCanistersPlaced < 2:
 		print('blue canister placed')
 		emit_signal("blueCanisterPlaced", markerSound)
-		set_scale(scale * 1.2)
+		set_scale(scale * scaleFactor)
 		rpc("_placed_blue_canister")
 		numBlueCanistersPlaced += 1
+		if numBlueCanistersPlaced < 2:
+			$InteractText.text = "Press 'E' to grow"
+		else:
+			$InteractText.text = ""
 	if canPlace && Input.is_action_just_pressed("interact") && visible && !placed:
 		$OmniLight.visible = false
 		$MeshInstance.visible = false
@@ -75,7 +90,6 @@ func _process(delta):
 			'Other':
 				var tree = preload('res://assets/Tree5.tscn').instance()
 				add_child(tree)
-		
 
 func _on_GreenCounter_numGreenCanistersCollected(numCanisters):
 	if !placed:
@@ -87,10 +101,16 @@ func _on_GreenCounter_numGreenCanistersCollected(numCanisters):
 func _on_GreenMarker_body_entered(body):
 	if body.name == String(get_tree().get_network_unique_id()):
 		canPlace = true
+		if numBlueCanistersPlaced < 2:
+			if placed: 
+				$InteractText.text = "Press 'E' to grow"
+			else :
+				$InteractText.text = "Press 'E' to plant"
 
 func _on_GreenMarker_body_exited(body):
 	if body.name == String(get_tree().get_network_unique_id()):
 		canPlace = false
+		$InteractText.text = ""
 
 func _on_BlueCounter_numBlueCanistersCollected(numCanisters):
 	numBlueCanisters = numCanisters
