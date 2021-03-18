@@ -17,10 +17,15 @@ var gravity_vec = Vector3()
 var input_dir = Vector3()
 
 onready var head = $Head
+onready var ping = $Ping
+var showingPing = false
+var pingCounter = 200
+var pingCounterMax = pingCounter
 onready var ground_check = $GroundCheck
 
 func _ready():
 	Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
+	ping.visible = false
 
 remote func _set_position(pos):
 	global_transform.origin = pos
@@ -31,7 +36,21 @@ func _input(event):
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
 
+remote func _show_ping():
+	showingPing = true
+	ping.visible = true
+
 func _physics_process(delta):
+	# Ping
+	if Input.is_action_just_pressed("ping"):
+		rpc("_show_ping")
+	if showingPing:
+		pingCounter -= 1
+		if pingCounter <= 0:
+			showingPing = false
+			ping.visible = false
+			pingCounter = pingCounterMax
+	
 	direction = Vector3()
 	
 	full_contact = ground_check.is_colliding();

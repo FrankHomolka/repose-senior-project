@@ -6,7 +6,10 @@ var numBlueCanisters = 0
 var numBlueCanistersPlaced = 0
 var canPlace = false
 var placedGreenCanister = false
-var scaleFactor = 1.5
+var scaleFactor = 2
+var scaling = false
+var previousScale = scale
+var newScale = 1
 export var markerSound = 'test' setget marker_sound_set, marker_sound_get
 onready var interactText = $InteractText
 
@@ -20,6 +23,16 @@ func marker_sound_get():
 	return markerSound
 
 func _process(delta):
+	if scaling:
+		if(previousScale < newScale - Vector3(0.1, 0.1, 0.1)):
+			print(previousScale)
+			print(newScale)
+			previousScale = lerp(previousScale, newScale, 0.04)
+			set_scale(previousScale)
+		else:
+			scaling = false
+			previousScale = scale
+	
 	if canPlace && Input.is_action_just_pressed("interact"):
 		if placedGreenCanister:
 			if numBlueCanisters > 0 && numBlueCanistersPlaced < 2:
@@ -71,7 +84,8 @@ remote func _remote_placed_green_canister():
 func _placed_blue_canister():
 	numBlueCanistersPlaced += 1
 	emit_signal("blueCanisterPlaced", markerSound)
-	set_scale(scale * scaleFactor)
+	scaling = true
+	newScale = scale * scaleFactor
 	_set_interact_text()
 
 remote func _remote_placed_blue_canister():

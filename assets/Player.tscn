@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/NewFPS.gd" type="Script" id=1]
 [ext_resource path="res://models/Fox.dae" type="PackedScene" id=2]
+[ext_resource path="res://assets/Ping.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleMesh" id=1]
 mid_height = 3.0
@@ -41,3 +42,6 @@ cast_to = Vector3( 0, -1.5, 0 )
 
 [node name="Fox" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, -2.51803, 0 )
+
+[node name="Ping" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.25, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 3.33027, 0 )
