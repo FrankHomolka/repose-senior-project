@@ -5,7 +5,7 @@ signal blueCanisterPlaced
 var numBlueCanisters = 0
 var numBlueCanistersPlaced = 0
 var canPlace = false
-var placed = false
+var placedGreenCanister = false
 var scaleFactor = 1.5
 export var markerSound = 'test' setget marker_sound_set, marker_sound_get
 onready var interactText = $InteractText
@@ -19,17 +19,35 @@ func marker_sound_set(new_value):
 func marker_sound_get():
 	return markerSound
 
-remote func _placed_canister():
-	if !placed:
-		placed = true
+func _process(delta):
+	if canPlace && Input.is_action_just_pressed("interact"):
+		if placedGreenCanister:
+			if numBlueCanisters > 0 && numBlueCanistersPlaced < 2:
+				_placed_blue_canister()
+				rpc("_remote_placed_blue_canister")
+		elif visible:
+			_placed_green_canister()
+			rpc("_remote_placed_green_canister")
+
+func _set_interact_text():
+	if canPlace:
+		if numBlueCanistersPlaced < 2:
+			if placedGreenCanister and numBlueCanisters > 0:
+				$InteractText.text = "Press 'E' to grow"
+			elif visible && !placedGreenCanister:
+				$InteractText.text = "Press 'E' to plant"
+			else:
+				$InteractText.text = ""
+		else:
+			$InteractText.text = ""
+
+func _placed_green_canister():
+	if !placedGreenCanister:
+		placedGreenCanister = true
 		$OmniLight.visible = false
 		$MeshInstance.visible = false
 		emit_signal("greenCanisterPlaced", markerSound)
-		numBlueCanistersPlaced += 1
-		if numBlueCanistersPlaced < 2:
-			$InteractText.text = "Press 'E' to grow"
-		else:
-			$InteractText.text = ""
+		_set_interact_text()
 		match(markerSound):
 			'Bass':
 				var tree = preload('res://assets/Tree1.tscn').instance()
@@ -47,52 +65,20 @@ remote func _placed_canister():
 				var tree = preload('res://assets/Tree5.tscn').instance()
 				add_child(tree)
 
-remote func _placed_blue_canister():
-	print('client side blue canister placed')
+remote func _remote_placed_green_canister():
+	_placed_green_canister()
+
+func _placed_blue_canister():
+	numBlueCanistersPlaced += 1
 	emit_signal("blueCanisterPlaced", markerSound)
 	set_scale(scale * scaleFactor)
-	numBlueCanistersPlaced += 1
-	if numBlueCanistersPlaced < 2:
-		$InteractText.text = "Press 'E' to grow"
-	else:
-		$InteractText.text = ""
+	_set_interact_text()
 
-func _process(delta):
-	if numBlueCanisters > 0 && Input.is_action_just_pressed("interact") && placed && canPlace && numBlueCanistersPlaced < 2:
-		print('blue canister placed')
-		emit_signal("blueCanisterPlaced", markerSound)
-		set_scale(scale * scaleFactor)
-		rpc("_placed_blue_canister")
-		numBlueCanistersPlaced += 1
-		if numBlueCanistersPlaced < 2:
-			$InteractText.text = "Press 'E' to grow"
-		else:
-			$InteractText.text = ""
-	if canPlace && Input.is_action_just_pressed("interact") && visible && !placed:
-		$OmniLight.visible = false
-		$MeshInstance.visible = false
-		placed = true
-		emit_signal("greenCanisterPlaced", markerSound)
-		rpc("_placed_canister")
-		match(markerSound):
-			'Bass':
-				var tree = preload('res://assets/Tree1.tscn').instance()
-				add_child(tree)
-			'Melody':
-				var tree = preload('res://assets/Tree2.tscn').instance()
-				add_child(tree)
-			'Percussion':
-				var tree = preload('res://assets/Tree3.tscn').instance()
-				add_child(tree)
-			'Harmony':
-				var tree = preload('res://assets/Tree4.tscn').instance()
-				add_child(tree)
-			'Other':
-				var tree = preload('res://assets/Tree5.tscn').instance()
-				add_child(tree)
+remote func _remote_placed_blue_canister():
+	_placed_blue_canister()
 
 func _on_GreenCounter_numGreenCanistersCollected(numCanisters):
-	if !placed:
+	if !placedGreenCanister:
 		if numCanisters > 0:
 			visible = true
 		else:
@@ -101,11 +87,7 @@ func _on_GreenCounter_numGreenCanistersCollected(numCanisters):
 func _on_GreenMarker_body_entered(body):
 	if body.name == String(get_tree().get_network_unique_id()):
 		canPlace = true
-		if numBlueCanistersPlaced < 2:
-			if placed: 
-				$InteractText.text = "Press 'E' to grow"
-			else :
-				$InteractText.text = "Press 'E' to plant"
+		_set_interact_text()
 
 func _on_GreenMarker_body_exited(body):
 	if body.name == String(get_tree().get_network_unique_id()):
