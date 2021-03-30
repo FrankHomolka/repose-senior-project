@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/YellowCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=2]
@@ -12,11 +12,12 @@
 [ext_resource path="res://assets/GreenMarker.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/YellowCanister.tscn" type="PackedScene" id=11]
 [ext_resource path="res://sounds/jingle.wav" type="AudioStream" id=12]
-[ext_resource path="res://assets/lowpoly_level.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/level_new.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://sprites/green canister.png" type="Texture" id=15]
 [ext_resource path="res://sprites/blue canister.png" type="Texture" id=16]
 [ext_resource path="res://sprites/yellow canister.png" type="Texture" id=17]
+[ext_resource path="res://assets/mountain.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ProceduralSky" id=1]
 
@@ -139,11 +140,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 289.985, -14.161, 225.451 )
 [node name="AudioManager" parent="." instance=ExtResource( 9 )]
 
 [node name="BubbleManager" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 274.846, -7.82092, 211.606 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.731, -25.8008, 211.606 )
 script = ExtResource( 4 )
 
 [node name="BubbleMesh" type="MeshInstance" parent="BubbleManager"]
-transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 12.2681, 0, 1.16817 )
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 mesh = SubResource( 7 )
 material/0 = null
 
@@ -212,10 +213,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.263, -22.3228, 182.265 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 304.568, -20.6465, 217.091 )
 
 [node name="GreenMarkers" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 48.1209, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.3398, 0 )
 
 [node name="GreenMarker" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 265.321, -66.7021, 220.544 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 265.321, -69.6987, 220.544 )
 markerSound = "Bass"
 
 [node name="GreenMarker2" parent="GreenMarkers" instance=ExtResource( 10 )]
@@ -234,19 +235,34 @@ markerSound = "Percussion"
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 291.15, -57.5421, 211.146 )
 markerSound = "Other"
 
-[node name="lowpoly_test" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 275.921, -26.1022, 214 )
+[node name="level_new" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.243, -82.9623, 215.838 )
+
+[node name="mountain" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.939, 213.182, 773.969 )
+
+[node name="mountain2" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 275.066, 186.778, 773.969 )
+
+[node name="mountain4" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 765.632, 62.0804, 498.786 )
+
+[node name="mountain5" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 765.632, 22.8351, 171.763 )
+
+[node name="mountain3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 530.565, 217.117, 853.815 )
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="yellowCanisterCollected" from="YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
 [connection signal="yellowCanisterPlaced" from="YellowMarker" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
 [connection signal="greenCanisterCollected" from="GreenCanisters/GreenCanister" to="UI/GreenCounter" method="_on_GreenCanister_collected"]
