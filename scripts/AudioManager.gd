@@ -5,6 +5,7 @@ var oldVolume = 1
 var newVolume = 0
 var transition = false
 var transitionSpeed = 0.003
+var audioMode = 'online'
 
 var bassLvl = 0
 var guitarLvl = 0
@@ -30,43 +31,58 @@ onready var violin3 = $violin3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if is_network_master(): # added for testing on one pc
-		bass1.play()
-		bass2.play()
-		bass3.play()
-		bass1.set_volume_db(linear2db(0.0))
-		bass2.set_volume_db(linear2db(0.0))
-		bass3.set_volume_db(linear2db(0.0))
-		guitar1.play()
-		guitar2.play()
-		guitar3.play()
-		guitar1.set_volume_db(linear2db(0.0))
-		guitar2.set_volume_db(linear2db(0.0))
-		guitar3.set_volume_db(linear2db(0.0))
-		piano1.play()
-		piano2.play()
-		piano3.play()
-		piano1.set_volume_db(linear2db(0.0))
-		piano2.set_volume_db(linear2db(0.0))
-		piano3.set_volume_db(linear2db(0.0))
-		slide1.play()
-		slide2.play()
-		slide3.play()
-		slide1.set_volume_db(linear2db(0.0))
-		slide2.set_volume_db(linear2db(0.0))
-		slide3.set_volume_db(linear2db(0.0))
-		violin1.play()
-		violin2.play()
-		violin3.play()
-		violin1.set_volume_db(linear2db(0.0))
-		violin2.set_volume_db(linear2db(0.0))
-		violin3.set_volume_db(linear2db(0.0))
+	bass1.play()
+	bass2.play()
+	bass3.play()
+	bass1.set_volume_db(linear2db(0.0))
+	bass2.set_volume_db(linear2db(0.0))
+	bass3.set_volume_db(linear2db(0.0))
+	guitar1.play()
+	guitar2.play()
+	guitar3.play()
+	guitar1.set_volume_db(linear2db(0.0))
+	guitar2.set_volume_db(linear2db(0.0))
+	guitar3.set_volume_db(linear2db(0.0))
+	piano1.play()
+	piano2.play()
+	piano3.play()
+	piano1.set_volume_db(linear2db(0.0))
+	piano2.set_volume_db(linear2db(0.0))
+	piano3.set_volume_db(linear2db(0.0))
+	slide1.play()
+	slide2.play()
+	slide3.play()
+	slide1.set_volume_db(linear2db(0.0))
+	slide2.set_volume_db(linear2db(0.0))
+	slide3.set_volume_db(linear2db(0.0))
+	violin1.play()
+	violin2.play()
+	violin3.play()
+	violin1.set_volume_db(linear2db(0.0))
+	violin2.set_volume_db(linear2db(0.0))
+	violin3.set_volume_db(linear2db(0.0))
+	
 
 remote func _transition_music(trans):
 	transition = trans
 
 func _process(delta):
-	if is_network_master(): # added for testing on one pc
+	if audioMode == 'local': 
+		if is_network_master(): # added for testing on one pc
+			if transition and oldVolume > 0 and newVolume < 1:
+				$song1perc1.set_volume_db(linear2db(oldVolume))
+				$song1perc2.set_volume_db(linear2db(newVolume))
+				$song1harmony1.set_volume_db(linear2db(oldVolume))
+				$song1harmony2.set_volume_db(linear2db(newVolume))
+				$song1melody1.set_volume_db(linear2db(oldVolume))
+				$song1melody2.set_volume_db(linear2db(newVolume))
+				$song1bass1.set_volume_db(linear2db(oldVolume))
+				$song1bass2.set_volume_db(linear2db(newVolume))
+				$song1other1.set_volume_db(linear2db(oldVolume))
+				$song1other2.set_volume_db(linear2db(newVolume))
+				oldVolume -= transitionSpeed
+				newVolume += transitionSpeed
+	else:
 		if transition and oldVolume > 0 and newVolume < 1:
 			$song1perc1.set_volume_db(linear2db(oldVolume))
 			$song1perc2.set_volume_db(linear2db(newVolume))
@@ -80,15 +96,6 @@ func _process(delta):
 			$song1other2.set_volume_db(linear2db(newVolume))
 			oldVolume -= transitionSpeed
 			newVolume += transitionSpeed
-
-#func _on_FlowerPurple_body_entered(body):
-#	print('body name = ' + body.name)
-#	print('unique id = ' + String(get_tree().get_network_unique_id()))
-#	if body.name == String(get_tree().get_network_unique_id()):
-#		rpc("_transition_music", true)
-#		print('successful flower collision')
-#		transition = true
-#		$Jingle.play()
 
 func _on_GreenMarker_greenCanisterPlaced(markerSound):
 	match(markerSound):

@@ -6,10 +6,11 @@ var numBlueCanisters = 0
 var numBlueCanistersPlaced = 0
 var canPlace = false
 var placedGreenCanister = false
-var scaleFactor = 2
+var scaleFactor = 3.5
 var scaling = false
-var previousScale = scale
+var previousScale = Vector3(0, 0, 0)
 var newScale = 1
+var scaleSpeed = 0.01
 export var markerSound = 'test' setget marker_sound_set, marker_sound_get
 onready var interactText = $InteractText
 
@@ -27,7 +28,7 @@ func _process(delta):
 		if(previousScale < newScale - Vector3(0.1, 0.1, 0.1)):
 			print(previousScale)
 			print(newScale)
-			previousScale = lerp(previousScale, newScale, 0.04)
+			previousScale = lerp(previousScale, newScale, scaleSpeed)
 			set_scale(previousScale)
 		else:
 			scaling = false
@@ -56,9 +57,13 @@ func _set_interact_text():
 
 func _placed_green_canister():
 	if !placedGreenCanister:
+		scaling = true
+		scale = previousScale
+		newScale = Vector3(1,1,1)
 		placedGreenCanister = true
 		$OmniLight.visible = false
 		$MeshInstance.visible = false
+		$TreeGrow.play()
 		emit_signal("greenCanisterPlaced", markerSound)
 		_set_interact_text()
 		match(markerSound):
@@ -82,6 +87,7 @@ remote func _remote_placed_green_canister():
 	_placed_green_canister()
 
 func _placed_blue_canister():
+	$TreeGrow.play()
 	numBlueCanistersPlaced += 1
 	emit_signal("blueCanisterPlaced", markerSound)
 	scaling = true

@@ -39,6 +39,7 @@ func _input(event):
 remote func _show_ping():
 	showingPing = true
 	ping.visible = true
+	$PingSound.play()
 
 func _physics_process(delta):
 	# Ping
@@ -50,6 +51,9 @@ func _physics_process(delta):
 			showingPing = false
 			ping.visible = false
 			pingCounter = pingCounterMax
+	
+	if Input.is_action_just_pressed('quit'):
+		get_tree().quit()
 	
 	direction = Vector3()
 	
