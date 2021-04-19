@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sounds/Real Draft 1/bass 3.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/jingle.wav" type="AudioStream" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://sounds/Real Draft 1/violin 3.wav" type="AudioStream" id=15]
 [ext_resource path="res://sounds/Real Draft 1/slide 3.wav" type="AudioStream" id=16]
 [ext_resource path="res://sounds/Real Draft 1/violin 2.wav" type="AudioStream" id=17]
+[ext_resource path="res://sounds/wind.wav" type="AudioStream" id=18]
 
 [node name="AudioManager" type="Spatial"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.22135, 0 )
@@ -69,3 +70,7 @@ stream = ExtResource( 17 )
 
 [node name="violin3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+
+[node name="wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = -2.014

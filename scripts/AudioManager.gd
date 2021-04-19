@@ -5,7 +5,7 @@ var oldVolume = 1
 var newVolume = 0
 var transition = false
 var transitionSpeed = 0.003
-var audioMode = 'online'
+var audioMode = 'local'
 
 var bassLvl = 0
 var guitarLvl = 0
@@ -29,8 +29,15 @@ onready var violin1 = $violin1
 onready var violin2 = $violin2
 onready var violin3 = $violin3
 
+onready var wind = $wind
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if audioMode == 'local': 
+		if is_network_master():
+			wind.play()
+	else:
+		wind.play()
 	bass1.play()
 	bass2.play()
 	bass3.play()

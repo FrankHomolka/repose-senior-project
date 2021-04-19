@@ -31,7 +31,7 @@ material/0 = null
 light_color = Color( 1, 0.956863, 0.490196, 1 )
 
 [node name="PickupArea" type="CollisionShape" parent="."]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="InteractText" parent="." instance=ExtResource( 2 )]

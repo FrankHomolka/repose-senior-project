@@ -18,6 +18,11 @@ var input_dir = Vector3()
 
 onready var head = $Head
 onready var ping = $Ping
+onready var pingSound = $PingSound
+
+onready var footstepSound = $FootstepSound
+onready var jumpSound = $JumpSound
+
 var showingPing = false
 var pingCounter = 200
 var pingCounterMax = pingCounter
@@ -39,7 +44,7 @@ func _input(event):
 remote func _show_ping():
 	showingPing = true
 	ping.visible = true
-	$PingSound.play()
+	pingSound.play()
 
 func _physics_process(delta):
 	# Ping
@@ -70,6 +75,7 @@ func _physics_process(delta):
 		h_acceleration = normal_acceleration
 	
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or ground_check.is_colliding()):
+		jumpSound.play()
 		gravity_vec = Vector3.UP * jump
 	
 	input_dir.z = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
@@ -83,6 +89,12 @@ func _physics_process(delta):
 	movement.x = h_velocity.x + gravity_vec.x
 	movement.y = gravity_vec.y
 	
+	if input_dir.x != 0 or input_dir.z != 0 and is_on_floor(): 
+		if footstepSound.playing == false:
+			footstepSound.play()
+	else:
+		footstepSound.stop()
+		
 	if movement != Vector3():
 		if is_network_master():
 			move_and_slide(movement, Vector3.UP)

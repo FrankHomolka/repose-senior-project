@@ -13,6 +13,7 @@ var newScale = 1
 var scaleSpeed = 0.01
 export var markerSound = 'test' setget marker_sound_set, marker_sound_get
 onready var interactText = $InteractText
+onready var waterPlantSound = $WaterPlantSound
 
 func _ready():
 	visible = false
@@ -37,6 +38,7 @@ func _process(delta):
 	if canPlace && Input.is_action_just_pressed("interact"):
 		if placedGreenCanister:
 			if numBlueCanisters > 0 && numBlueCanistersPlaced < 2:
+				waterPlantSound.play()
 				_placed_blue_canister()
 				rpc("_remote_placed_blue_canister")
 		elif visible:

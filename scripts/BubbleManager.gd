@@ -1,36 +1,56 @@
 extends Spatial
 
+onready var bubbleGrowingSound = $BubbleGrowingSound
+
 const oxygenMax = 100
+const oxygenLossSpeed = 0.15
 var oxygen = oxygenMax
 var outside = false
 var newColorValue = 0
-var scaleFactor = 1.4
 signal outOfOxygen
+
+var scaleFactor = 2
+var scaling = false
+var previousScale = scale
+var newScale = 1
+var scaleSpeed = 0.01
 
 func  _ready():
 	outside = false
 	$SuffocateControl/SuffocateOverlay.visible = true
 
 func _process(delta):
+	if scaling:
+		if(previousScale < newScale - Vector3(0.1, 0.1, 0.1)):
+			print(previousScale)
+			print(newScale)
+			previousScale = lerp(previousScale, newScale, scaleSpeed)
+			set_scale(previousScale)
+		else:
+			bubbleGrowingSound.stop()
+			scaling = false
+			previousScale = scale
+	
 	if outside:
-		oxygen -= 0.2
+		oxygen -= oxygenLossSpeed
 		if oxygen < 0:
 			print('out of oxygen')
 			_out_of_oxygen()
 		else:
 			print(newColorValue)
 			newColorValue = (oxygen / oxygenMax);
-			$SuffocateControl/SuffocateOverlay.set_modulate(Color(newColorValue, newColorValue, newColorValue, 1 - newColorValue))
+			$SuffocateControl/SuffocateOverlay.set_modulate(Color(newColorValue, newColorValue, newColorValue, 1.4 - newColorValue))
 
 func _out_of_oxygen():
 	oxygen = oxygenMax
 	emit_signal("outOfOxygen")
 
 func _on_GreenMarker_greenCanisterPlaced(markerSound):
-	set_scale(scale * scaleFactor)
-
-func _on_GreenMarker_blueCanisterPlaced(markerSound):
-	set_scale(scale * scaleFactor)
+	if !bubbleGrowingSound.playing:
+		bubbleGrowingSound.play()
+	scaling = true
+	newScale = scale * scaleFactor
+	#set_scale(scale * scaleFactor)
 
 func _on_BubbleManager_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.name == String(get_tree().get_network_unique_id()):
