@@ -22,7 +22,8 @@ func _player_connected(id):
 	print('player connected')
 	Globals.player2id = id
 	var game = preload("res://assets/MainLevel.tscn").instance() #
-	get_tree().get_root().add_child(game)
+	add_child(game)
+	get_parent().get_node("Interface").queue_free()
 	hide()
 
 

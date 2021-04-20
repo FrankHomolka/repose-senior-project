@@ -79,10 +79,10 @@ func _placed_green_canister():
 				var tree = preload('res://assets/Tree3.tscn').instance()
 				add_child(tree)
 			'Harmony':
-				var tree = preload('res://assets/Tree4.tscn').instance()
+				var tree = preload('res://assets/Tree6.tscn').instance()
 				add_child(tree)
 			'Other':
-				var tree = preload('res://assets/Tree5.tscn').instance()
+				var tree = preload('res://assets/Tree7.tscn').instance()
 				add_child(tree)
 
 remote func _remote_placed_green_canister():

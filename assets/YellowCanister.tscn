@@ -35,5 +35,10 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="InteractText" parent="." instance=ExtResource( 2 )]
+margin_left = -144.008
+margin_top = -34.8255
+margin_right = 142.992
+margin_bottom = 34.1745
+valign = 1
 [connection signal="body_entered" from="." to="." method="_on_YellowCanister_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_YellowCanister_body_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/aloe.obj-92e7f7ff7d1ea13f09719fefcd0e8ce2.mesh"
+
+[deps]
+
+files=[ "res://.import/aloe.obj-92e7f7ff7d1ea13f09719fefcd0e8ce2.mesh" ]
+
+source_file="res://models/aloe.obj"
+dest_files=[ "res://.import/aloe.obj-92e7f7ff7d1ea13f09719fefcd0e8ce2.mesh", "res://.import/aloe.obj-92e7f7ff7d1ea13f09719fefcd0e8ce2.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true

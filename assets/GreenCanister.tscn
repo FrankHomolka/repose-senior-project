@@ -40,9 +40,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.769737, 0 )
 light_color = Color( 0.396078, 1, 0.392157, 1 )
 
 [node name="InteractText" parent="." instance=ExtResource( 2 )]
-margin_left = 364.494
-margin_top = 271.181
-margin_right = 664.494
-margin_bottom = 321.181
 [connection signal="body_entered" from="." to="." method="_on_GreenCanister_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_GreenCanister_body_exited"]

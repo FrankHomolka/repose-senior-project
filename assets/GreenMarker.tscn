@@ -35,7 +35,6 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="InteractText" parent="." instance=ExtResource( 2 )]
-align = 1
 valign = 1
 
 [node name="TreeGrow" type="AudioStreamPlayer" parent="."]
