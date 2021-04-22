@@ -9,15 +9,15 @@
 [ext_resource path="res://sprites/green canister.png" type="Texture" id=7]
 [ext_resource path="res://scripts/IpInput.gd" type="Script" id=8]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 50
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 50
 outline_color = Color( 0.862745, 0.862745, 0.901961, 1 )
 font_data = ExtResource( 4 )
@@ -79,7 +79,7 @@ margin_left = -240.531
 margin_top = -70.8135
 margin_right = -6.5307
 margin_bottom = -37.8135
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Goal: Collect these"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,7 +90,7 @@ margin_left = -248.0
 margin_top = 93.0
 margin_right = -14.0
 margin_bottom = 183.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "bring them back
 to camp, expand
 bubble"
@@ -115,7 +115,7 @@ margin_left = 24.4089
 margin_top = -143.859
 margin_right = 263.409
 margin_bottom = 225.141
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "Controls:
 
    W
@@ -146,7 +146,7 @@ margin_left = -198.355
 margin_top = 16.1384
 margin_right = 196.645
 margin_bottom = 79.1384
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
 text = "Host Game"
 flat = true
@@ -163,7 +163,7 @@ margin_left = -198.141
 margin_top = 81.0935
 margin_right = 185.859
 margin_bottom = 146.094
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
 text = "Join Game"
 flat = true
@@ -184,4 +184,4 @@ __meta__ = {
 }
 [connection signal="pressed" from="Interface/Center Align/ButtonHost" to="Lobby" method="_on_ButtonHost_pressed"]
 [connection signal="pressed" from="Interface/Center Align/ButtonJoin" to="Lobby" method="_on_ButtonJoin_pressed"]
-[connection signal="text_changed" from="Interface/Center Align/IpInput" to="." method="_on_IpInput_text_changed"]
+[connection signal="text_changed" from="Interface/Center Align/IpInput" to="Lobby" method="_on_IpInput_text_changed"]

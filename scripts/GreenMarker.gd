@@ -119,3 +119,4 @@ func _on_GreenMarker_body_exited(body):
 func _on_BlueCounter_numBlueCanistersCollected(numCanisters):
 	numBlueCanisters = numCanisters
 	print(numBlueCanisters)
+

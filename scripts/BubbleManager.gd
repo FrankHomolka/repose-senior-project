@@ -15,6 +15,13 @@ var previousScale = scale
 var newScale = 1
 var scaleSpeed = 0.01
 
+var scalelvl = 1
+const scale1 = Vector3(1, 1, 1)
+const scale2 = Vector3(7, 7, 7)
+const scale3 = Vector3(14, 14, 14)
+const scale4 = Vector3(20, 20, 20)
+const scale5 = Vector3(35, 35, 35)
+
 func  _ready():
 	outside = false
 	$SuffocateControl/SuffocateOverlay.visible = true
@@ -49,7 +56,19 @@ func _on_GreenMarker_greenCanisterPlaced(markerSound):
 	if !bubbleGrowingSound.playing:
 		bubbleGrowingSound.play()
 	scaling = true
-	newScale = scale * scaleFactor
+	scalelvl += 1
+	match scalelvl:
+		1:
+			newScale = scale1
+		2:
+			newScale = scale2
+		3:
+			newScale = scale3
+		4:
+			newScale = scale4
+		5:
+			newScale = scale5
+	#newScale = scale * scaleFactor
 	#set_scale(scale * scaleFactor)
 
 func _on_BubbleManager_body_shape_entered(body_id, body, body_shape, area_shape):
