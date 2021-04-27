@@ -8,7 +8,7 @@ var gravity = 28
 var jump = 10
 var full_contact = false
 
-var speed = 30
+var speed = 10
 
 var direction = Vector3()
 var h_velocity = Vector3()

@@ -1,13 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/Lobby.gd" type="Script" id=1]
 [ext_resource path="res://sprites/title.png" type="Texture" id=2]
-[ext_resource path="res://sprites/background.png" type="Texture" id=3]
+[ext_resource path="res://sprites/repose_1.png" type="Texture" id=3]
 [ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://sprites/blue canister.png" type="Texture" id=5]
 [ext_resource path="res://sprites/yellow canister.png" type="Texture" id=6]
 [ext_resource path="res://sprites/green canister.png" type="Texture" id=7]
 [ext_resource path="res://scripts/IpInput.gd" type="Script" id=8]
+[ext_resource path="res://sprites/s.png" type="Texture" id=9]
+[ext_resource path="res://sprites/a.png" type="Texture" id=10]
+[ext_resource path="res://sprites/d.png" type="Texture" id=11]
+[ext_resource path="res://sprites/w.png" type="Texture" id=12]
+[ext_resource path="res://sprites/e.png" type="Texture" id=13]
+[ext_resource path="res://sprites/q.png" type="Texture" id=14]
+[ext_resource path="res://sprites/mouse.png" type="Texture" id=15]
+[ext_resource path="res://sprites/esc.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -30,30 +38,18 @@ script = ExtResource( 1 )
 [node name="Interface" type="Node" parent="."]
 
 [node name="Background" type="TextureRect" parent="Interface"]
-margin_right = 4445.0
-margin_bottom = 2542.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="TextureRect" parent="Interface"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -326.063
-margin_top = -322.366
-margin_right = 341.937
-margin_bottom = 36.634
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Right Align" type="Control" parent="Interface"]
+visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -111,77 +107,154 @@ __meta__ = {
 }
 
 [node name="controls" type="Label" parent="Interface/Left Align"]
-margin_left = 24.4089
-margin_top = -143.859
-margin_right = 263.409
-margin_bottom = 225.141
+margin_left = 5.0
+margin_top = 39.6529
+margin_right = 132.0
+margin_bottom = 335.653
 custom_fonts/font = SubResource( 1 )
-text = "Controls:
+text = "
+MOVE
 
-   W
-A S D - move
+INTERACT
 
-mouse - look
+PING
 
-e - interact
-
-q - ping
-
-esc - quit"
+QUIT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Center Align" type="Control" parent="Interface"]
+[node name="W" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 140.762
+margin_top = 28.5088
+margin_right = 180.762
+margin_bottom = 68.5088
+texture = ExtResource( 12 )
+
+[node name="A" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 98.2529
+margin_top = 66.5715
+margin_right = 138.253
+margin_bottom = 106.571
+texture = ExtResource( 10 )
+
+[node name="S" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 139.873
+margin_top = 67.1661
+margin_right = 179.873
+margin_bottom = 107.166
+texture = ExtResource( 9 )
+
+[node name="D" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 178.819
+margin_top = 66.2751
+margin_right = 218.819
+margin_bottom = 106.275
+texture = ExtResource( 11 )
+
+[node name="Q" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 74.5834
+margin_top = 192.783
+margin_right = 114.583
+margin_bottom = 232.783
+texture = ExtResource( 14 )
+
+[node name="E" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 137.837
+margin_top = 129.529
+margin_right = 177.837
+margin_bottom = 169.529
+texture = ExtResource( 13 )
+
+[node name="esc" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 78.1471
+margin_top = 254.255
+margin_right = 126.147
+margin_bottom = 294.255
+texture = ExtResource( 16 )
+
+[node name="mouse" type="TextureRect" parent="Interface/Left Align"]
+margin_left = 218.708
+margin_top = 46.9091
+margin_right = 275.708
+margin_bottom = 103.909
+texture = ExtResource( 15 )
+expand = true
+
+[node name="Bottom Align" type="Control" parent="Interface"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonHost" type="Button" parent="Interface/Center Align"]
-margin_left = -198.355
-margin_top = 16.1384
-margin_right = 196.645
-margin_bottom = 79.1384
+[node name="ButtonHost" type="Button" parent="Interface/Bottom Align"]
+margin_left = -209.895
+margin_top = -105.64
+margin_right = 185.105
+margin_bottom = -42.6399
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
-text = "Host Game"
+text = "Host"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonJoin" type="Button" parent="Interface/Center Align"]
+[node name="ButtonJoin" type="Button" parent="Interface/Bottom Align"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -198.141
-margin_top = 81.0935
-margin_right = 185.859
-margin_bottom = 146.094
+margin_left = -205.901
+margin_top = -58.3236
+margin_right = 178.099
+margin_bottom = 6.67688
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
-text = "Join Game"
+text = "Join"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IpInput" type="LineEdit" parent="Interface/Center Align"]
-margin_left = -113.738
-margin_top = -35.3221
-margin_right = 99.2623
-margin_bottom = -10.3221
+[node name="IpInput" type="LineEdit" parent="Interface/Bottom Align"]
+margin_left = -117.718
+margin_top = -135.682
+margin_right = 95.2821
+margin_bottom = -110.682
 caret_blink = true
 caret_blink_speed = 0.5
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Interface/Center Align/ButtonHost" to="Lobby" method="_on_ButtonHost_pressed"]
-[connection signal="pressed" from="Interface/Center Align/ButtonJoin" to="Lobby" method="_on_ButtonJoin_pressed"]
-[connection signal="text_changed" from="Interface/Center Align/IpInput" to="Lobby" method="_on_IpInput_text_changed"]
+
+[node name="Top Align" type="Control" parent="Interface"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="Interface/Top Align"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.825
+margin_top = -48.013
+margin_right = 181.175
+margin_bottom = 178.987
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Interface/Bottom Align/ButtonHost" to="Lobby" method="_on_ButtonHost_pressed"]
+[connection signal="pressed" from="Interface/Bottom Align/ButtonJoin" to="Lobby" method="_on_ButtonJoin_pressed"]
+[connection signal="text_changed" from="Interface/Bottom Align/IpInput" to="Lobby" method="_on_IpInput_text_changed"]

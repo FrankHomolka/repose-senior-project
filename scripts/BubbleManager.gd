@@ -68,8 +68,6 @@ func _on_GreenMarker_greenCanisterPlaced(markerSound):
 			newScale = scale4
 		5:
 			newScale = scale5
-	#newScale = scale * scaleFactor
-	#set_scale(scale * scaleFactor)
 
 func _on_BubbleManager_body_shape_entered(body_id, body, body_shape, area_shape):
 	if body.name == String(get_tree().get_network_unique_id()):
