@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/YellowCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=2]
@@ -19,10 +19,11 @@
 [ext_resource path="res://sprites/yellow canister.png" type="Texture" id=17]
 [ext_resource path="res://assets/mountain.tscn" type="PackedScene" id=18]
 [ext_resource path="res://sprites/suffocate_overlay.png" type="Texture" id=19]
-[ext_resource path="res://assets/Cactus1.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/grass.tscn" type="PackedScene" id=20]
 [ext_resource path="res://sounds/bubble.wav" type="AudioStream" id=21]
 [ext_resource path="res://assets/DeadTree.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/Rock1.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/Aloe.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ProceduralSky" id=1]
 sun_color = Color( 1, 0.960784, 0.745098, 1 )
@@ -34,12 +35,18 @@ background_mode = 2
 background_sky = SubResource( 1 )
 ambient_light_color = Color( 0.772549, 0.772549, 0.768627, 1 )
 ambient_light_energy = 0.43
+ambient_light_sky_contribution = 0.23
 fog_enabled = true
-fog_color = Color( 0.615686, 0.658824, 0.67451, 1 )
-fog_sun_color = Color( 1, 0.968627, 0.901961, 1 )
-fog_depth_end = 810.1
-fog_depth_curve = 2.14355
+fog_color = Color( 0.631373, 0.690196, 0.780392, 1 )
+fog_sun_color = Color( 0.85098, 0.85098, 0.85098, 1 )
+fog_sun_amount = 0.43
+fog_depth_begin = 507.1
+fog_depth_end = 1614.9
+fog_depth_curve = 2.07053
 fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_min = -37.3
+fog_height_max = 520.7
 tonemap_mode = 3
 tonemap_exposure = 0.34
 auto_exposure_scale = 0.78
@@ -50,8 +57,15 @@ ssao_radius = 13.11
 ssao_intensity = 6.3
 dof_blur_far_enabled = true
 dof_blur_far_distance = 231.54
-dof_blur_far_transition = 259.12
-dof_blur_far_amount = 0.06
+dof_blur_far_transition = 738.54
+dof_blur_far_amount = 0.07
+glow_strength = 0.8
+glow_bloom = 0.45
+glow_blend_mode = 1
+glow_hdr_threshold = 0.03
+glow_hdr_luminance_cap = 13.11
+glow_hdr_scale = 0.22
+glow_bicubic_upscale = true
 
 [sub_resource type="DynamicFont" id=3]
 size = 34
@@ -96,10 +110,10 @@ directional_shadow_max_distance = 666.7
 environment = SubResource( 2 )
 
 [node name="Player1Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 284.271, -20.7903, 212.992 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 284.271, -18.2878, 212.992 )
 
 [node name="Player2Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.31, -20.8604, 211.801 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.31, -18.3579, 211.801 )
 
 [node name="UI" type="Control" parent="."]
 margin_top = -0.471924
@@ -173,12 +187,12 @@ texture = ExtResource( 17 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.894, -23.5347, 183.494 )
 
 [node name="YellowMarker" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.8, -23.8318, 212.436 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.8, -20.9059, 212.436 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 9 )]
 
 [node name="BubbleManager" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.731, -25.8008, 211.606 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 283.731, -25.8008, 211.606 )
 script = ExtResource( 4 )
 
 [node name="BubbleMesh" type="MeshInstance" parent="BubbleManager"]
@@ -190,20 +204,18 @@ material/0 = null
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 shape = SubResource( 8 )
 
-[node name="SuffocateControl" type="Control" parent="BubbleManager"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="BubbleGrowingSound" type="AudioStreamPlayer" parent="BubbleManager"]
+stream = ExtResource( 21 )
+volume_db = -4.0
+
+[node name="SuffocateOverlay" type="TextureRect" parent="BubbleManager"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="SuffocateOverlay" type="Sprite" parent="BubbleManager/SuffocateControl"]
-position = Vector2( 548.268, 310.857 )
-scale = Vector2( 0.570329, 0.570329 )
-texture = ExtResource( 19 )
-
-[node name="BubbleGrowingSound" type="AudioStreamPlayer" parent="BubbleManager"]
-stream = ExtResource( 21 )
 
 [node name="GreenCanisters" type="Spatial" parent="."]
 
@@ -217,7 +229,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 605.763, 102.662, -114.837 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.0377, -11.524, 1.92961 )
 
 [node name="GreenCanister4" parent="GreenCanisters" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 273.318, -24.1621, 224.68 )
+transform = Transform( 0.765899, -0.639749, -0.0641937, 0, 0.0998406, -0.995003, 0.642961, 0.762072, 0.0764678, 273.318, -21.8073, 224.68 )
 
 [node name="GreenCanister5" parent="GreenCanisters" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 375.833, -73.2457, 349.301 )
@@ -225,113 +237,62 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 375.833, -73.2457, 349.301 )
 [node name="BlueCanisters" type="Spatial" parent="."]
 
 [node name="BlueCanister" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 263.607, -25.3384, 198.096 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 238.125, -29.6814, 262.897 )
 
 [node name="BlueCanister10" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.063, -23.6331, 190.823 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.063, -19.3208, 190.823 )
 
 [node name="BlueCanister9" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 272.335, -25.0226, 189.9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 272.335, -20.7103, 189.9 )
 
 [node name="BlueCanister8" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.247, -23.078, 229.467 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.247, -18.7657, 229.467 )
 
 [node name="BlueCanister7" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 299.447, -22.511, 235.173 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 299.447, -18.1987, 235.173 )
 
 [node name="BlueCanister6" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 258.51, -25.5976, 219.993 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 248.301, -30.0804, 288.498 )
 
 [node name="BlueCanister5" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 278.679, -24.3475, 183.958 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 278.679, -20.0352, 183.958 )
 
 [node name="BlueCanister4" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 306.329, -22.3878, 226.381 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 306.329, -18.0755, 226.381 )
 
 [node name="BlueCanister2" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.263, -24.241, 182.265 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.263, -19.9287, 182.265 )
 
 [node name="BlueCanister3" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 304.568, -22.6171, 217.091 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 304.568, -18.3048, 217.091 )
 
 [node name="GreenMarkers" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.3398, 0 )
 
 [node name="GreenMarker" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 243.024, -66.4878, 225.625 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 253.112, -62.1848, 231.839 )
 markerSound = "Bass"
 
 [node name="GreenMarker2" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 280.073, -61.9975, 242.038 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 297.224, -61.4285, 247.165 )
 markerSound = "Melody"
 
 [node name="GreenMarker3" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 246.376, -65.0606, 183.621 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 262.998, -61.3449, 180.119 )
 markerSound = "Harmony"
 
 [node name="GreenMarker4" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 289.992, -62.7197, 173.716 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 305.758, -61.5915, 180.99 )
 markerSound = "Percussion"
 
 [node name="GreenMarker5" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300.449, -62.0267, 211.146 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 317.6, -61.1657, 217.36 )
 markerSound = "Other"
 
-[node name="level_new" parent="." instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.243, -82.9623, 215.838 )
+[node name="Aloe" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 191.817, -20.193, 194.241 )
 
-[node name="mountain" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.939, 213.182, 773.969 )
-
-[node name="mountain2" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 275.066, 186.778, 773.969 )
-
-[node name="mountain4" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 765.632, 62.0804, 498.786 )
-
-[node name="mountain5" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 765.632, 22.8351, 171.763 )
-
-[node name="mountain3" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 530.565, 217.117, 853.815 )
-
-[node name="mountain11" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 778.28, 35.4015, 316.891 )
-
-[node name="mountain6" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 530.565, 67.4083, -276.058 )
-
-[node name="mountain7" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 408.739, 49.1105, -276.058 )
-
-[node name="mountain8" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 267.15, 69.6074, -299.893 )
-
-[node name="mountain9" parent="." instance=ExtResource( 18 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 401.412, 69.6074, -409.444 )
-
-[node name="mountain10" parent="." instance=ExtResource( 18 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 679.99, 20.5122, -374.32 )
-
-[node name="mountain12" parent="." instance=ExtResource( 18 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 393.902, 171.5, 946.036 )
-
-[node name="Vegetation" type="Node" parent="."]
-
-[node name="Cactus01" parent="Vegetation" instance=ExtResource( 20 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 204.296, -24.865, 176.399 )
-
-[node name="Cactus02" parent="Vegetation" instance=ExtResource( 20 )]
-transform = Transform( 2.81305, 0, 1.04248, 0, 3, 0, -1.04248, 0, 2.81305, 187.164, -22.9306, 181.647 )
-
-[node name="Cactus03" parent="Vegetation" instance=ExtResource( 20 )]
-transform = Transform( -1.02089, 0, 2.82095, 0, 3, 0, -2.82095, 0, -1.02089, 187.416, -25.7466, 200.813 )
-
-[node name="Cactus04" parent="Vegetation" instance=ExtResource( 20 )]
-transform = Transform( -0.0259705, 0, 2.99989, -0.249668, 2.98959, -0.00216141, -2.98948, -0.249677, -0.0258804, 180.293, -24.277, 199.155 )
-
-[node name="Cactus05" parent="Vegetation" instance=ExtResource( 20 )]
-transform = Transform( -1.50349, 0, 2.59606, 0.343525, 3.96483, 0.19895, -2.57323, 0.529302, -1.49027, 180.293, -25.8418, 208.656 )
+[node name="Aloe" parent="Aloe" instance=ExtResource( 24 )]
 
 [node name="Park" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 244.919, -30.5685, 282.898 )
@@ -360,15 +321,146 @@ transform = Transform( 7.95912, 0, -28.9249, 0, 30, 0, 28.9249, 0, 7.95912, 607.
 
 [node name="Spatial" parent="Tower" instance=ExtResource( 23 )]
 transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 4.80532, -20.364, -10.7172 )
+
+[node name="Mountains" type="Node" parent="."]
+
+[node name="mountain" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 140.939, 213.182, 773.969 )
+
+[node name="mountain22" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 783.342, 88.4647, 629.52 )
+
+[node name="mountain2" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 275.066, 186.778, 773.969 )
+
+[node name="mountain4" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 765.632, 62.0804, 498.786 )
+
+[node name="mountain38" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, 799.948, 13.6355, 412.409 )
+
+[node name="mountain5" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 765.632, 22.8351, 171.763 )
+
+[node name="mountain18" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 784.052, 34.6139, 95.4056 )
+
+[node name="mountain19" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 795.442, 43.8713, 230.571 )
+
+[node name="mountain3" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 530.565, 217.117, 853.815 )
+
+[node name="mountain11" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 778.28, 35.4015, 316.891 )
+
+[node name="mountain6" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 530.565, 67.4083, -276.058 )
+
+[node name="mountain7" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 408.739, 49.1105, -276.058 )
+
+[node name="mountain8" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 267.15, 69.6074, -299.893 )
+
+[node name="mountain9" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 401.412, 69.6074, -409.444 )
+
+[node name="mountain20" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 4, 0, 0, 0, 5, 0, 0, 0, 2, 1020.01, 69.6074, -588.077 )
+
+[node name="mountain21" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 4, 0, 0, 0, 3, 0, 0, 0, 5, 804.016, 69.6074, -693.926 )
+
+[node name="mountain39" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 5, 0, 0, 0, 7, 0, 0, 0, 5, 251.058, -18.9173, -1465.94 )
+
+[node name="mountain41" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 5, 0, 0, 0, 7, 0, 0, 0, 5, 2016.01, 270.102, -837.849 )
+
+[node name="mountain40" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 5.12184, 0, 3.84091, 0, 10, 0, -6.14546, 0, 3.20115, 2043.77, -213.628, 509.94 )
+
+[node name="mountain10" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 679.99, 20.5122, -374.32 )
+
+[node name="mountain13" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.0107684, 0, -0.999942, 0, 1, 0, 0.999942, 0, 0.0107684, 764.775, 67.4083, -107.954 )
+
+[node name="mountain14" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.0107684, 0, -0.999942, 0, 1, 0, 0.999942, 0, 0.0107684, 763.463, 49.1105, -229.773 )
+
+[node name="mountain15" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.0107684, 0, -0.999942, 0, 1, 0, 0.999942, 0, 0.0107684, 785.772, 69.6074, -371.61 )
+
+[node name="mountain16" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.0215368, 0, -1.99988, 0, 2, 0, 1.99988, 0, 0.0215368, 896.763, 69.6074, -238.536 )
+
+[node name="mountain17" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.0215368, 0, -1.99988, 0, 2, 0, 1.99988, 0, 0.0215368, 884.315, 20.5122, 40.4043 )
+
+[node name="mountain24" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.291637, 0, 0.956529, 0, 1, 0, -0.956529, 0, 0.291637, -209.332, 95.1489, -42.786 )
+
+[node name="mountain25" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.291637, 0, 0.956529, 0, 1, 0, -0.956529, 0, 0.291637, -244.862, 76.8511, 73.7441 )
+
+[node name="mountain26" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.291637, 0, 0.956529, 0, 1, 0, -0.956529, 0, 0.291637, -308.953, 97.348, 202.227 )
+
+[node name="mountain27" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.583274, 0, 1.91306, 0, 2, 0, -1.91306, 0, 0.583274, -374.586, 97.348, 41.8523 )
+
+[node name="mountain28" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.583274, 0, 1.91306, 0, 2, 0, -1.91306, 0, 0.583274, -278.502, 48.2528, -220.312 )
+
+[node name="mountain36" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 2.46157, 0, 0.174662, 0, 2, 0, -0.436655, 0, 0.984628, -45.9837, 37.9458, -311.153 )
+
+[node name="mountain37" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 2.46157, 0, 0.174662, 0, 2, 0, -0.436655, 0, 0.984628, 103.308, 13.9176, -272.969 )
+
+[node name="mountain29" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( -0.502341, 0, 0.86467, 0, 1, 0, -0.86467, 0, -0.502341, -115.783, 190.286, 571.152 )
+
+[node name="mountain34" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.00293204, 0, 0.999996, 0, 1, 0, -0.999996, 0, 0.00293204, -183.254, 143.151, 310.723 )
+
+[node name="mountain35" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 0.00586405, 0, 0.999996, 0, 1.5, 0, -1.99999, 0, 0.00293202, -205.967, 115.358, 149.436 )
+
+[node name="mountain30" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( -0.502341, 0, 0.86467, 0, 1, 0, -0.86467, 0, -0.502341, -54.5847, 171.989, 676.492 )
+
+[node name="mountain31" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( -0.502341, 0, 0.86467, 0, 1, 0, -0.86467, 0, -0.502341, -4.06807, 192.486, 810.893 )
+
+[node name="mountain32" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( -1.00468, 0, 1.72934, 0, 2, 0, -1.72934, 0, -1.00468, -166.239, 192.486, 749.832 )
+
+[node name="mountain33" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( -1.00468, 0, 1.72934, 0, 2, 0, -1.72934, 0, -1.00468, -292.927, 143.39, 501.01 )
+
+[node name="mountain12" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 6, 0, 0, 0, 2, 429.571, -443.291, 745.568 )
+
+[node name="mountain23" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 3.81873, 0, 0.59525, 0, 4, 0, -1.1905, 0, 1.90937, 645.238, -256.419, 745.568 )
+
+[node name="level_new" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.243, -82.9623, 215.838 )
+
+[node name="grass" parent="." instance=ExtResource( 20 )]
+transform = Transform( 0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 284.027, -53.8362, 211.658 )
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="yellowCanisterCollected" from="YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
@@ -391,33 +483,33 @@ transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 4.80532, -20.364, -10.7172 
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister4" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister2" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister3" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]

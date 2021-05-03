@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var mouse_sensitivity = 0.03
+var mouse_sensitivity = 0.06
 var h_acceleration = 16
 var air_acceleration = 1
 var normal_acceleration = 16
@@ -9,6 +9,8 @@ var jump = 10
 var full_contact = false
 
 var speed = 10
+var runSpeed = 15
+var currentSpeed = speed
 
 var direction = Vector3()
 var h_velocity = Vector3()
@@ -48,6 +50,11 @@ remote func _show_ping():
 
 func _physics_process(delta):
 	# Ping
+	if Input.is_action_pressed("run"):
+		currentSpeed = runSpeed
+	else:
+		currentSpeed = speed
+	
 	if Input.is_action_just_pressed("ping"):
 		rpc("_show_ping")
 	if showingPing:
@@ -84,7 +91,7 @@ func _physics_process(delta):
 	direction += input_dir.x * transform.basis.x
 	
 	direction = direction.normalized()
-	h_velocity = h_velocity.linear_interpolate(direction * speed, h_acceleration * delta)
+	h_velocity = h_velocity.linear_interpolate(direction * currentSpeed, h_acceleration * delta)
 	movement.z = h_velocity.z + gravity_vec.z
 	movement.x = h_velocity.x + gravity_vec.x
 	movement.y = gravity_vec.y

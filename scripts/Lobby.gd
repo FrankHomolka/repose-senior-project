@@ -1,6 +1,6 @@
 extends Node2D
 
-var serverIp = "47.7.49.50"
+var serverIp = "192.168.1.5"#"47.7.49.50"
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")

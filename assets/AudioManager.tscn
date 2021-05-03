@@ -25,51 +25,67 @@ script = ExtResource( 12 )
 
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+volume_db = 5.0
 
 [node name="bass1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = 5.0
 
 [node name="bass2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+volume_db = 5.0
 
 [node name="bass3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = 5.0
 
 [node name="guitar1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = 5.0
 
 [node name="guitar2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = 5.0
 
 [node name="guitar3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+volume_db = 5.0
 
 [node name="piano1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+volume_db = 5.0
 
 [node name="piano2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
+volume_db = 5.0
 
 [node name="piano3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = 5.0
 
 [node name="slide1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = 5.0
 
 [node name="slide2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = 5.0
 
 [node name="slide3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+volume_db = 5.0
 
 [node name="violin1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+volume_db = 5.0
 
 [node name="violin2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
+volume_db = 5.0
 
 [node name="violin3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+volume_db = 5.0
 
 [node name="wind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
