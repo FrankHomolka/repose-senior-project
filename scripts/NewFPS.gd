@@ -48,7 +48,7 @@ remote func _show_ping():
 	ping.visible = true
 	pingSound.play()
 
-func _physics_process(delta):
+func _process(delta):
 	# Ping
 	if Input.is_action_pressed("run"):
 		currentSpeed = runSpeed
@@ -66,6 +66,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed('quit'):
 		get_tree().quit()
+
+func _physics_process(delta):
 	
 	direction = Vector3()
 	

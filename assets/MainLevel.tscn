@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/YellowCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=2]
@@ -24,18 +24,23 @@
 [ext_resource path="res://assets/DeadTree.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/Rock1.tscn" type="PackedScene" id=23]
 [ext_resource path="res://assets/Aloe.tscn" type="PackedScene" id=24]
+[ext_resource path="res://models/boat.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/DayNightController.gd" type="Script" id=26]
 
 [sub_resource type="ProceduralSky" id=1]
 sun_color = Color( 1, 0.960784, 0.745098, 1 )
 sun_latitude = 32.79
+sun_longitude = -22.09
+sun_angle_min = 9.84
+sun_angle_max = 26.5
 sun_energy = 3.75
 
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-ambient_light_color = Color( 0.772549, 0.772549, 0.768627, 1 )
-ambient_light_energy = 0.43
-ambient_light_sky_contribution = 0.23
+ambient_light_color = Color( 0.0352941, 0, 0.184314, 1 )
+ambient_light_energy = 0.4
+ambient_light_sky_contribution = 0.06
 fog_enabled = true
 fog_color = Color( 0.631373, 0.690196, 0.780392, 1 )
 fog_sun_color = Color( 0.85098, 0.85098, 0.85098, 1 )
@@ -52,15 +57,17 @@ tonemap_exposure = 0.34
 auto_exposure_scale = 0.78
 auto_exposure_max_luma = 11.98
 auto_exposure_speed = 36.85
-ssao_enabled = true
 ssao_radius = 13.11
 ssao_intensity = 6.3
 dof_blur_far_enabled = true
 dof_blur_far_distance = 231.54
 dof_blur_far_transition = 738.54
 dof_blur_far_amount = 0.07
+glow_levels/1 = true
+glow_levels/3 = false
+glow_levels/5 = false
 glow_strength = 0.8
-glow_bloom = 0.45
+glow_bloom = 0.56
 glow_blend_mode = 1
 glow_hdr_threshold = 0.03
 glow_hdr_luminance_cap = 13.11
@@ -81,9 +88,12 @@ font_data = ExtResource( 14 )
 
 [sub_resource type="SpatialMaterial" id=6]
 flags_transparent = true
+flags_unshaded = true
+params_diffuse_mode = 1
+params_specular_mode = 2
 params_blend_mode = 1
 params_cull_mode = 2
-albedo_color = Color( 0.396078, 0.960784, 0.866667, 1 )
+albedo_color = Color( 0.866667, 0.976471, 1, 0.286275 )
 
 [sub_resource type="SphereMesh" id=7]
 material = SubResource( 6 )
@@ -93,20 +103,25 @@ material = SubResource( 6 )
 [node name="MainLevel" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.655486, 0.754051, 0.0417808, 0.593847, -0.548822, 0.588337, 0.466566, -0.360835, -0.807536, 0, 0, 0 )
+[node name="DayNightController" type="Node" parent="."]
+script = ExtResource( 26 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="DayNightController"]
+transform = Transform( 0.655486, 0.754051, 0.0417809, 0.577432, -0.536074, 0.61579, 0.486735, -0.379516, -0.786802, 138.213, 0, 145.294 )
 light_color = Color( 0.87451, 0.643137, 0.392157, 1 )
 light_energy = 2.7
+light_specular = 0.22
 shadow_enabled = true
+shadow_color = Color( 0.0839233, 0, 0.429688, 1 )
 directional_shadow_split_1 = 0.134
 directional_shadow_split_2 = 0.586
 directional_shadow_split_3 = 0.529
 directional_shadow_blend_splits = true
-directional_shadow_normal_bias = 2.02
+directional_shadow_normal_bias = 2.26
 directional_shadow_bias_split_scale = 0.88
 directional_shadow_max_distance = 666.7
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DayNightController"]
 environment = SubResource( 2 )
 
 [node name="Player1Pos" type="Position3D" parent="."]
@@ -232,7 +247,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.0377, -11.524, 1.92961 )
 transform = Transform( 0.765899, -0.639749, -0.0641937, 0, 0.0998406, -0.995003, 0.642961, 0.762072, 0.0764678, 273.318, -21.8073, 224.68 )
 
 [node name="GreenCanister5" parent="GreenCanisters" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 375.833, -73.2457, 349.301 )
+transform = Transform( 0.932216, 0, 0.361901, 0.234724, 0.761142, -0.604622, -0.275458, 0.648585, 0.709549, 408.69, -38.5935, 381.792 )
 
 [node name="BlueCanisters" type="Spatial" parent="."]
 
@@ -307,7 +322,7 @@ transform = Transform( 5.51877, 0, 2.3544, 0, 6, 0, -2.3544, 0, 5.51877, -26.857
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -37.5733, -4.01549, -9.8576 )
 
 [node name="DeadTree2" parent="Park" instance=ExtResource( 22 )]
-transform = Transform( 0.795911, 0, -2.89249, 0, 3, 0, 2.89249, 0, 0.795911, -7.55174, -1.2964, 20.8394 )
+transform = Transform( 0.795911, 0, -2.89249, 0, 3, 0, 2.89249, 0, 0.795911, -7.55174, -2.81445, 20.8394 )
 
 [node name="Spatial" parent="Park" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 0.993562, -0.11329, 0, 0.11329, 0.993562, 11.5988, 1.37005, 0.00720215 )
@@ -370,7 +385,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 401.412, 69.6074, -409.444 )
 transform = Transform( 4, 0, 0, 0, 5, 0, 0, 0, 2, 1020.01, 69.6074, -588.077 )
 
 [node name="mountain21" parent="Mountains" instance=ExtResource( 18 )]
-transform = Transform( 4, 0, 0, 0, 3, 0, 0, 0, 5, 804.016, 69.6074, -693.926 )
+transform = Transform( 4, 0, 0, 0, 3, 0, 0, 0, 5, 675.483, -191.47, -637.521 )
 
 [node name="mountain39" parent="Mountains" instance=ExtResource( 18 )]
 transform = Transform( 5, 0, 0, 0, 7, 0, 0, 0, 5, 251.058, -18.9173, -1465.94 )
@@ -382,7 +397,10 @@ transform = Transform( 5, 0, 0, 0, 7, 0, 0, 0, 5, 2016.01, 270.102, -837.849 )
 transform = Transform( 5.12184, 0, 3.84091, 0, 10, 0, -6.14546, 0, 3.20115, 2043.77, -213.628, 509.94 )
 
 [node name="mountain10" parent="Mountains" instance=ExtResource( 18 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 679.99, 20.5122, -374.32 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 745.099, 1.47707, -361.507 )
+
+[node name="mountain42" parent="Mountains" instance=ExtResource( 18 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 650.043, -151.022, -334.377 )
 
 [node name="mountain13" parent="Mountains" instance=ExtResource( 18 )]
 transform = Transform( 0.0107684, 0, -0.999942, 0, 1, 0, 0.999942, 0, 0.0107684, 764.775, 67.4083, -107.954 )
@@ -452,17 +470,32 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.243, -82.9623, 215.838 )
 
 [node name="grass" parent="." instance=ExtResource( 20 )]
 transform = Transform( 0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 284.027, -53.8362, 211.658 )
+
+[node name="Spatial" parent="." instance=ExtResource( 25 )]
+transform = Transform( 0.0565182, -0.0406979, 0.00702612, 0, 0.0119087, 0.0689796, -0.0413, -0.0556943, 0.00961511, 412.335, -88.3757, 371.412 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.986346, -0.164686, 0, 0.164686, 0.986346, 201.312, 31.7453, 175.623 )
+visible = false
+light_color = Color( 0.701961, 0.701961, 0.701961, 1 )
+light_energy = 1.38
+directional_shadow_split_1 = 0.302
+directional_shadow_split_2 = 0.445
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 1.23
+directional_shadow_bias_split_scale = 0.0
+directional_shadow_max_distance = 2.3
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="yellowCanisterCollected" from="YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
 [connection signal="yellowCanisterPlaced" from="YellowMarker" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
 [connection signal="body_shape_entered" from="BubbleManager" to="BubbleManager" method="_on_BubbleManager_body_shape_entered"]
@@ -483,33 +516,33 @@ transform = Transform( 0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 284.027, -53.8362, 211.6
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister4" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister2" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister3" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]

@@ -13,13 +13,15 @@ func _ready():
 	player1.global_transform = player1pos.global_transform
 	add_child(player1)
 	
-	player2 = preload("res://assets/Player.tscn").instance()
-	player2.set_name(str(Globals.player2id))
-	player2.set_network_master(Globals.player2id)
-	player2.global_transform = player2pos.global_transform
-	add_child(player2)
+	if(Globals.player2id != -1):
+		player2 = preload("res://assets/Player.tscn").instance()
+		player2.set_name(str(Globals.player2id))
+		player2.set_network_master(Globals.player2id)
+		player2.global_transform = player2pos.global_transform
+		add_child(player2)
 
 
 func _on_BubbleManager_outOfOxygen():
-	player2.global_transform = player2pos.global_transform
 	player1.global_transform = player1pos.global_transform
+	if(Globals.player2id != -1):
+		player2.global_transform = player2pos.global_transform
