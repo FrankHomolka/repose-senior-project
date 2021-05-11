@@ -3,7 +3,7 @@ extends Spatial
 onready var bubbleGrowingSound = $BubbleGrowingSound
 
 const oxygenMax = 100
-const oxygenLossSpeed = 0.15
+const oxygenLossSpeed = 0.12
 var oxygen = oxygenMax
 var outside = false
 var newColorValue = 0
@@ -46,11 +46,17 @@ func _process(delta):
 		else:
 #			print(newColorValue)
 			newColorValue = (oxygen / oxygenMax);
-			$SuffocateOverlay.set_modulate(Color(newColorValue, newColorValue, newColorValue, 1.4 - newColorValue))
+			if newColorValue < 0.5:
+				newColorValue -= 0.02
+			print(newColorValue)
+			$SuffocateOverlay.set_modulate(Color(newColorValue, newColorValue, newColorValue, 1 - newColorValue))
 
 func _out_of_oxygen():
 	oxygen = oxygenMax
+	$SuffocateText.show()
 	emit_signal("outOfOxygen")
+	yield(get_tree().create_timer(4.0), "timeout")
+	$SuffocateText.hide()
 
 func _on_GreenMarker_greenCanisterPlaced(markerSound):
 	if !bubbleGrowingSound.playing:

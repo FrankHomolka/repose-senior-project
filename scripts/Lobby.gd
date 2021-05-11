@@ -1,6 +1,6 @@
 extends Node2D
 
-var serverIp = "192.168.1.5"#"47.7.49.50"
+var serverIp = "47.7.49.50"#"47.7.49.50"
 signal playerHosted
 signal playerJoined
 

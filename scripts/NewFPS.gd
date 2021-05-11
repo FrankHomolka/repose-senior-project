@@ -5,7 +5,7 @@ var h_acceleration = 16
 var air_acceleration = 1
 var normal_acceleration = 16
 var gravity = 28
-var jump = 10
+var jump = 20
 var full_contact = false
 
 var speed = 10
