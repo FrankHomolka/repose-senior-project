@@ -57,7 +57,6 @@ __meta__ = {
 }
 
 [node name="Right Align" type="Control" parent="LobbyInterface"]
-visible = false
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -67,16 +66,19 @@ __meta__ = {
 }
 
 [node name="yellow canister" type="Sprite" parent="LobbyInterface/Right Align"]
+visible = false
 position = Vector2( -54.4221, 29.3394 )
 scale = Vector2( 0.268241, 0.268241 )
 texture = ExtResource( 6 )
 
 [node name="blue canister" type="Sprite" parent="LobbyInterface/Right Align"]
+visible = false
 position = Vector2( -210, 36.9999 )
 scale = Vector2( 0.244635, 0.244635 )
 texture = ExtResource( 5 )
 
 [node name="goal1" type="Label" parent="LobbyInterface/Right Align"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -240.531
@@ -90,6 +92,7 @@ __meta__ = {
 }
 
 [node name="goal2" type="Label" parent="LobbyInterface/Right Align"]
+visible = false
 margin_left = -248.0
 margin_top = 93.0
 margin_right = -14.0
@@ -103,6 +106,7 @@ __meta__ = {
 }
 
 [node name="green canister" type="Sprite" parent="LobbyInterface/Right Align"]
+visible = false
 position = Vector2( -135.5, 32.5001 )
 scale = Vector2( 0.268241, 0.268241 )
 texture = ExtResource( 7 )
@@ -322,10 +326,10 @@ __meta__ = {
 }
 
 [node name="ButtonHost" type="Button" parent="LobbyInterface/Bottom Align"]
-margin_left = -319.426
-margin_top = -106.434
-margin_right = 75.5743
-margin_bottom = -43.4336
+margin_left = -372.426
+margin_top = -67.434
+margin_right = 22.5743
+margin_bottom = -4.43356
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
 text = "Host"
@@ -335,10 +339,10 @@ __meta__ = {
 }
 
 [node name="ButtonSinglePlayer" type="Button" parent="LobbyInterface/Bottom Align"]
-margin_left = -220.678
-margin_top = -162.284
-margin_right = 174.322
-margin_bottom = -99.2843
+margin_left = -201.678
+margin_top = -121.284
+margin_right = 193.322
+margin_bottom = -58.284
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
 text = "Singleplayer"
@@ -352,10 +356,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -320.988
-margin_top = -56.7362
-margin_right = 63.0125
-margin_bottom = 8.26428
+margin_left = -16.988
+margin_top = -65.7362
+margin_right = 367.012
+margin_bottom = -0.735725
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.862745, 0.862745, 0.901961, 1 )
 text = "Join"
@@ -365,10 +369,10 @@ __meta__ = {
 }
 
 [node name="IpInput" type="LineEdit" parent="LobbyInterface/Bottom Align"]
-margin_left = -39.0054
-margin_top = -85.3928
-margin_right = 173.995
-margin_bottom = -60.3928
+margin_left = -104.005
+margin_top = -47.3928
+margin_right = 108.995
+margin_bottom = -22.3928
 caret_blink = true
 caret_blink_speed = 0.5
 script = ExtResource( 8 )
@@ -447,7 +451,7 @@ __meta__ = {
 [connection signal="playerHosted" from="Lobby" to="LobbyInterface" method="_on_Lobby_playerHosted"]
 [connection signal="playerJoined" from="Lobby" to="LobbyInterface" method="_on_Lobby_playerJoined"]
 [connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonHost" to="Lobby" method="_on_ButtonHost_pressed"]
-[connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonSinglePlayer" to="LobbyInterface" method="_on_ButtonSinglePlayer_pressed"]
 [connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonSinglePlayer" to="Lobby" method="_on_ButtonSinglePlayer_pressed"]
+[connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonSinglePlayer" to="LobbyInterface" method="_on_ButtonSinglePlayer_pressed"]
 [connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonJoin" to="Lobby" method="_on_ButtonJoin_pressed"]
 [connection signal="text_changed" from="LobbyInterface/Bottom Align/IpInput" to="Lobby" method="_on_IpInput_text_changed"]

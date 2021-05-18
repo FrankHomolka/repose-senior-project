@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scripts/YellowCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://assets/Rock3-1.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/Rock2-3.tscn" type="PackedScene" id=29]
 [ext_resource path="res://sprites/black_overlay.png" type="Texture" id=30]
+[ext_resource path="res://scripts/UI.gd" type="Script" id=31]
 
 [sub_resource type="ProceduralSky" id=1]
 sun_color = Color( 1, 0.960784, 0.745098, 1 )
@@ -90,7 +91,15 @@ font_data = ExtResource( 14 )
 size = 34
 font_data = ExtResource( 14 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="DynamicFont" id=6]
+size = 50
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=8]
 flags_transparent = true
 flags_unshaded = true
 params_diffuse_mode = 1
@@ -99,12 +108,12 @@ params_blend_mode = 1
 params_cull_mode = 2
 albedo_color = Color( 0.866667, 0.976471, 1, 0.286275 )
 
-[sub_resource type="SphereMesh" id=7]
-material = SubResource( 6 )
+[sub_resource type="SphereMesh" id=9]
+material = SubResource( 8 )
 
-[sub_resource type="SphereShape" id=8]
+[sub_resource type="SphereShape" id=10]
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=11]
 size = 45
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -144,6 +153,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.31, -18.3579, 211.801 )
 margin_top = -0.471924
 margin_right = 1026.0
 margin_bottom = 596.528
+script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -167,6 +177,7 @@ __meta__ = {
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="UI/BlueCounter"]
 stream = ExtResource( 12 )
+bus = "Sound"
 
 [node name="YellowCounter" type="Label" parent="UI"]
 margin_left = 57.7166
@@ -182,6 +193,7 @@ __meta__ = {
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="UI/YellowCounter"]
 stream = ExtResource( 12 )
+bus = "Sound"
 
 [node name="GreenCounter" type="Label" parent="UI"]
 margin_left = 57.7166
@@ -197,6 +209,7 @@ __meta__ = {
 
 [node name="PickupSound" type="AudioStreamPlayer" parent="UI/GreenCounter"]
 stream = ExtResource( 12 )
+bus = "Sound"
 
 [node name="blue canister" type="Sprite" parent="UI"]
 position = Vector2( 35.1853, 97.7648 )
@@ -208,11 +221,92 @@ position = Vector2( 38.5513, 161.007 )
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 17 )
 
+[node name="Settings" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -107.48
+margin_top = -70.7107
+margin_right = 107.52
+margin_bottom = 17.2893
+custom_fonts/font = SubResource( 6 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolume" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -296.0
+margin_top = 151.6
+margin_right = 78.0
+margin_bottom = 216.6
+custom_fonts/font = SubResource( 6 )
+text = "Music Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundVolume" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -303.0
+margin_top = 84.6
+margin_right = 82.0
+margin_bottom = 149.6
+custom_fonts/font = SubResource( 6 )
+text = "Sound Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeSlider" type="HSlider" parent="UI"]
+margin_left = 656.0
+margin_top = 264.0
+margin_right = 930.0
+margin_bottom = 322.0
+min_value = -30.0
+max_value = 5.0
+value = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundVolumeSlider" type="HSlider" parent="UI"]
+margin_left = 660.0
+margin_top = 201.0
+margin_right = 925.0
+margin_bottom = 247.0
+min_value = -30.0
+max_value = 10.0
+value = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="UI"]
+margin_left = 361.846
+margin_top = 401.201
+margin_right = 642.846
+margin_bottom = 484.201
+custom_fonts/font = SubResource( 7 )
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="YellowCanister" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.894, -23.5347, 183.494 )
 
 [node name="YellowMarker" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.8, -20.9059, 212.436 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.615, -20.3813, 244.535 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 9 )]
 
@@ -222,16 +316,17 @@ script = ExtResource( 4 )
 
 [node name="BubbleMesh" type="MeshInstance" parent="BubbleManager"]
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
-mesh = SubResource( 7 )
+mesh = SubResource( 9 )
 material/0 = null
 
 [node name="BubbleShape" type="CollisionShape" parent="BubbleManager"]
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="BubbleGrowingSound" type="AudioStreamPlayer" parent="BubbleManager"]
 stream = ExtResource( 21 )
-volume_db = -4.0
+volume_db = -7.81
+bus = "Sound"
 
 [node name="SuffocateText" type="Label" parent="BubbleManager"]
 visible = false
@@ -243,7 +338,7 @@ margin_left = -183.0
 margin_top = -20.4719
 margin_right = 196.0
 margin_bottom = 32.5281
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 11 )
 text = "You ran out of air!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -260,6 +355,7 @@ __meta__ = {
 }
 
 [node name="SuffocateOverlay" type="TextureRect" parent="BubbleManager"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 19 )
@@ -558,17 +654,22 @@ directional_shadow_blend_splits = true
 directional_shadow_normal_bias = 1.23
 directional_shadow_bias_split_scale = 0.0
 directional_shadow_max_distance = 2.3
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="value_changed" from="UI/MusicVolumeSlider" to="UI" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/MusicVolumeSlider" to="AudioManager" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/SoundVolumeSlider" to="UI" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/SoundVolumeSlider" to="AudioManager" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_QuitButton_pressed"]
 [connection signal="yellowCanisterCollected" from="YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
 [connection signal="yellowCanisterPlaced" from="YellowMarker" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
 [connection signal="body_shape_entered" from="BubbleManager" to="BubbleManager" method="_on_BubbleManager_body_shape_entered"]
@@ -589,33 +690,33 @@ directional_shadow_max_distance = 2.3
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister4" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister2" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister3" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]

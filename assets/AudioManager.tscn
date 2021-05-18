@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sounds/Real Draft 1/bass 3.wav" type="AudioStream" id=1]
 [ext_resource path="res://sounds/jingle.wav" type="AudioStream" id=2]
@@ -18,6 +18,13 @@
 [ext_resource path="res://sounds/Real Draft 1/slide 3.wav" type="AudioStream" id=16]
 [ext_resource path="res://sounds/Real Draft 1/violin 2.wav" type="AudioStream" id=17]
 [ext_resource path="res://sounds/wind.wav" type="AudioStream" id=18]
+[ext_resource path="res://sprites/note.png" type="Texture" id=19]
+[ext_resource path="res://Comfortaa-Bold.ttf" type="DynamicFontData" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 20 )
 
 [node name="AudioManager" type="Spatial"]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.22135, 0 )
@@ -26,67 +33,115 @@ script = ExtResource( 12 )
 [node name="Jingle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = 5.0
+bus = "Sound"
 
 [node name="bass1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="bass2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="bass3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="guitar1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="guitar2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="guitar3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="piano1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="piano2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="piano3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="slide1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="slide2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="slide3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="violin1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="violin2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="violin3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = 5.0
+bus = "Music"
 
 [node name="wind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 volume_db = -2.014
+bus = "Sound"
+
+[node name="UnlockNote" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -178.0
+margin_top = -44.0
+margin_right = -50.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 19 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UnlockText" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -94.0
+margin_top = 15.0
+margin_right = 17.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 1 )
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}

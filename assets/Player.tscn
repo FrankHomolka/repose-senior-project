@@ -53,9 +53,12 @@ texture = ExtResource( 7 )
 
 [node name="PingSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )
+bus = "Sound"
 
 [node name="FootstepSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 5 )
+bus = "Sound"
 
 [node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 6 )
+bus = "Sound"

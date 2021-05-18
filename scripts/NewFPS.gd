@@ -7,6 +7,7 @@ var normal_acceleration = 16
 var gravity = 28
 var jump = 20
 var full_contact = false
+var showSettings = false
 
 var speed = 10
 var runSpeed = 15
@@ -33,12 +34,18 @@ onready var ground_check = $GroundCheck
 func _ready():
 	Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
 	ping.visible = false
+	$Fox.visible = false
+	rpc("_show_fox")
 
+remote func _show_fox():
+	if !is_network_master():
+		$Fox.visible = true
+	
 remote func _set_position(pos):
 	global_transform.origin = pos
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !showSettings:
 		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sensitivity))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
@@ -49,6 +56,15 @@ remote func _show_ping():
 	pingSound.play()
 
 func _process(delta):
+	
+	
+	if Input.is_action_just_pressed('quit'):
+		showSettings = !showSettings
+		if showSettings:
+			Input.set_mouse_mode((Input.MOUSE_MODE_VISIBLE))
+		else:
+			Input.set_mouse_mode((Input.MOUSE_MODE_CAPTURED))
+	
 	# Ping
 	if Input.is_action_pressed("run"):
 		currentSpeed = runSpeed
@@ -63,9 +79,6 @@ func _process(delta):
 			showingPing = false
 			ping.visible = false
 			pingCounter = pingCounterMax
-	
-	if Input.is_action_just_pressed('quit'):
-		get_tree().quit()
 
 func _physics_process(delta):
 	

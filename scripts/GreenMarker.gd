@@ -27,8 +27,8 @@ func marker_sound_get():
 func _process(delta):
 	if scaling:
 		if(previousScale < newScale - Vector3(0.1, 0.1, 0.1)):
-			print(previousScale)
-			print(newScale)
+			#print(previousScale)
+			#print(newScale)
 			previousScale = lerp(previousScale, newScale, scaleSpeed)
 			set_scale(previousScale)
 		else:
@@ -118,5 +118,5 @@ func _on_GreenMarker_body_exited(body):
 
 func _on_BlueCounter_numBlueCanistersCollected(numCanisters):
 	numBlueCanisters = numCanisters
-	print(numBlueCanisters)
+	#print(numBlueCanisters)
 
