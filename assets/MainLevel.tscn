@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scripts/YellowCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://assets/grass.tscn" type="PackedScene" id=20]
 [ext_resource path="res://sounds/bubble.wav" type="AudioStream" id=21]
 [ext_resource path="res://assets/DeadTree.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/Rock1.tscn" type="PackedScene" id=23]
 [ext_resource path="res://models/Rock2-2.tscn" type="PackedScene" id=24]
 [ext_resource path="res://models/boat.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scripts/DayNightController.gd" type="Script" id=26]
@@ -307,31 +308,31 @@ __meta__ = {
 transform = Transform( 0.217604, 0.779107, 0.587912, 0.963139, -0.269004, 0, 0.158151, 0.566241, -0.808925, 57.1049, 32.8892, 98.4843 )
 
 [node name="YellowCanister2" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 308.404, -22.6094, 192.236 )
+transform = Transform( 0.0174464, -0.794128, -0.6075, 0.0227967, 0.60775, -0.793801, 0.999588, 0, 0.0287066, 244.317, -11.9166, -63.2291 )
 
 [node name="YellowCanister3" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.8, -22.6094, 203.783 )
+transform = Transform( -0.2777, -0.302953, -0.911648, 0.0351218, 0.945137, -0.32478, 0.960026, -0.12221, -0.251824, 589.767, -19.8366, 113.496 )
 
 [node name="YellowCanister4" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 257.704, -21.4003, 203.783 )
+transform = Transform( 0.887703, 0.225355, 0.401496, 0, 0.872027, -0.489459, -0.460417, 0.434494, 0.7741, 205.846, -34.0731, 272.118 )
 
 [node name="YellowCanister5" parent="Yellow Canisters" instance=ExtResource( 11 )]
 transform = Transform( -0.00351474, -0.998784, -0.0491775, -0.071202, 0.0493029, -0.996243, 0.997456, 0, -0.0712887, 500.162, 10.5265, 382.194 )
 
 [node name="YellowCanister6" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 272.793, -21.4003, 192.056 )
+transform = Transform( 1, 0, 0, 0, 0.836401, -0.548118, 0, 0.548118, 0.836401, 56.079, -12.5821, -30.2293 )
 
 [node name="YellowCanister7" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.861, -21.4003, 187.893 )
+transform = Transform( -0.993986, -0.0871888, 0.066259, -0.0720171, 0.0646401, -0.995306, 0.0824966, -0.994092, -0.0705304, 46.5797, 68.2226, 52.0649 )
 
 [node name="YellowCanister8" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 292.032, -22.4685, 232.676 )
+transform = Transform( 0.353068, 0.833751, 0.424503, -0.533144, 0.552141, -0.641013, -0.768831, 0, 0.639452, 484.222, -60.5949, 342.319 )
 
 [node name="YellowCanister9" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 297.361, -21.8684, 223.982 )
+transform = Transform( 1, 0, 0, 0, 0.0706617, -0.9975, 0, 0.9975, 0.0706617, 304.364, -22.3214, 234.031 )
 
 [node name="YellowCanister10" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300.901, -21.9952, 211.041 )
+transform = Transform( 1, 0, 0, 0, 0.474426, -0.880295, 0, 0.880295, 0.474426, 234.034, -29.9446, 259.259 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 9 )]
 
@@ -418,7 +419,7 @@ transform = Transform( 0.0104644, 0.459316, 0.888211, -0.00541105, 0.888273, -0.
 transform = Transform( -0.0163977, 0.830714, -0.556459, 0.0711532, -0.554153, -0.829368, -0.997331, -0.0531935, -0.0500211, 46.6319, -0.699108, 209.876 )
 
 [node name="BlueCanister8" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 266.425, -21.6759, 229.467 )
+transform = Transform( -0.00355214, -0.97711, 0.212704, 0.859621, -0.11166, -0.498582, 0.51092, 0.181074, 0.840341, 275.378, -21.0036, 235.342 )
 
 [node name="BlueCanister7" parent="BlueCanisters" instance=ExtResource( 6 )]
 transform = Transform( -0.996204, -0.0863617, -0.0109345, -0.0161535, 0.306824, -0.95163, 0.0855392, -0.94784, -0.307054, 447.738, -63.7927, 345.578 )
@@ -433,10 +434,10 @@ transform = Transform( 1, 0, 0, 0, 0.0847561, -0.996402, 0, 0.996402, 0.0847561,
 transform = Transform( 0.835966, 0.048936, -0.546595, -0.315481, 0.857835, -0.405698, 0.449035, 0.51159, 0.732559, 434.059, -52.3374, 371.198 )
 
 [node name="BlueCanister2" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 466.803, 53.872, 11.0594 )
+transform = Transform( -0.983464, -0.10949, 0.144258, -0.160706, 0.894861, -0.416411, -0.0834977, -0.432709, -0.897659, 499.105, 38.4757, 31.7165 )
 
 [node name="BlueCanister3" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 304.568, -22.2621, 217.091 )
+transform = Transform( -0.302893, -0.324012, -0.896255, 0.353484, 0.835155, -0.421385, 0.885045, -0.444446, -0.138429, 127.12, 25.589, 62.6338 )
 
 [node name="GreenMarkers" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 38.3398, 0 )
@@ -496,6 +497,9 @@ transform = Transform( 8.45806, 0, -18.1235, 0, 20, 0, 18.1235, 0, 8.45806, 297.
 
 [node name="Rock Type1 07" parent="Rocks" instance=ExtResource( 24 )]
 transform = Transform( -18.8235, 0, -6.75834, 0, 20, 0, 6.75834, 0, -18.8235, 301.972, -14.4105, 169.47 )
+
+[node name="Spatial" parent="Rocks" instance=ExtResource( 23 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 394.444, -3.99502, -80.9698 )
 
 [node name="Park" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 244.919, -30.5685, 282.898 )
@@ -592,6 +596,21 @@ transform = Transform( 14.9635, 1.00621, 78.5817, 6.16489, 79.7319, -2.19485, -7
 [node name="Rock Type1 07" parent="Ancient Oak" instance=ExtResource( 27 )]
 transform = Transform( 41.6306, -5.09422, -68.1245, 6.16489, 79.7319, -2.19485, 68.0359, -4.10758, 41.8837, 334.865, -4.0743, -122.875 )
 
+[node name="Rock Type1 08" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( 29.1256, -11.8874, 73.5554, 43.1615, 67.0671, -6.25172, -60.7353, 41.9605, 30.8307, 247.634, -4.0743, -150.198 )
+
+[node name="Rock Type1 09" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( -18.5936, 1.7964, -35.3702, -1.36444, -39.9552, -1.312, -35.3895, 0.596645, 18.6341, 320.853, 68.2272, -69.0316 )
+
+[node name="Rock Type1 10" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( -37.81, 8.06851, -10.2616, -7.54358, -39.1674, -3.00143, -10.6534, -0.901875, 38.5447, 257.68, 58.739, -107.291 )
+
+[node name="Rock Type1 11" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( -37.1199, -7.6594, -12.7848, -9.31639, 38.708, 3.8595, 11.6328, 6.55929, -37.7048, 262.531, 36.7466, -59.6429 )
+
+[node name="Rock Type1 12" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( -4.60165, -38.8825, -8.18388, -37.9935, 6.71764, -10.5532, 11.6328, 6.55929, -37.7048, 225.62, -1.23986, -59.6429 )
+
 [node name="Rock Type2 01" parent="Ancient Oak" instance=ExtResource( 28 )]
 transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 654.865, 72.2429, -63.2995 )
 
@@ -600,6 +619,9 @@ transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 589.955, 47.5244, -10.3243 
 
 [node name="Rock Type2 07" parent="Ancient Oak" instance=ExtResource( 28 )]
 transform = Transform( -17.717, 0, -9.27953, 0, 20, 0, 9.27953, 0, -17.717, 600.085, 116.619, -10.3242 )
+
+[node name="Rock Type2 11" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( -7.60031, 0, 6.49887, 4.59547, 7.07094, 5.37433, -4.59531, 7.07119, -5.37414, 594.747, 132.667, -9.34466 )
 
 [node name="Rock Type2 09" parent="Ancient Oak" instance=ExtResource( 28 )]
 transform = Transform( -17.717, 0, -9.27953, 0, 20, 0, 9.27953, 0, -17.717, 622.103, 79.6776, -55.1341 )
@@ -668,6 +690,24 @@ transform = Transform( -2.79487, 0, 19.8038, 0, 20, 0, -19.8038, 0, -2.79487, 61
 
 [node name="Rock Type2 03" parent="Tower" instance=ExtResource( 28 )]
 transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 57.9563, 71.1427, 26.7869 )
+
+[node name="Rock Type2 09" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 201.424, -21.2831, 97.2097 )
+
+[node name="Rock Type2 10" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 233.437, -43.5551, -33.0298 )
+
+[node name="Rock Type2 13" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 245.867, -31.5845, -33.0298 )
+
+[node name="Rock Type2 14" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 10.2519, -8.17074, -15.1042, 14.1153, 14.0281, 1.99207, 9.78038, -11.6812, 12.9574, 241.51, -16.9077, -37.1316 )
+
+[node name="Rock Type2 11" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 13.6433, -12.698, -7.25405, 14.1153, 14.0281, 1.99207, 3.82329, -6.47859, 18.5313, 231.251, -20.2868, -36.4545 )
+
+[node name="Rock Type2 12" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 5.29072, -17.8409, -7.32876, 18.9048, 6.30314, -1.69673, 3.82329, -6.47859, 18.5313, 224.982, 0.785347, -38.128 )
 
 [node name="Rock Type2 05" parent="Tower" instance=ExtResource( 28 )]
 transform = Transform( 5.01101, -7.57267, 17.8198, 14.1153, 14.0281, 1.99207, -13.2532, 12.0775, 8.8593, 22.5325, 103.993, 42.3574 )
@@ -874,30 +914,30 @@ markerSound = "G"
 [node name="YellowMarker10" parent="Yellow markers" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.505, -21.9413, 215.359 )
 markerSound = "G-"
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker3" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker5" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker6" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker2" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker7" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker2" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker4" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker9" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker10" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker5" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker8" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker9" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker3" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker10" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="value_changed" from="UI/MusicVolumeSlider" to="AudioManager" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="UI/MusicVolumeSlider" to="UI" method="_on_MusicVolumeSlider_value_changed"]
-[connection signal="value_changed" from="UI/SoundVolumeSlider" to="AudioManager" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/MusicVolumeSlider" to="AudioManager" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="UI/SoundVolumeSlider" to="UI" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/SoundVolumeSlider" to="AudioManager" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_QuitButton_pressed"]
 [connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
 [connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister2" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
@@ -927,36 +967,36 @@ markerSound = "G-"
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister4" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister2" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister3" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
 [connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker2" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
 [connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker3" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]

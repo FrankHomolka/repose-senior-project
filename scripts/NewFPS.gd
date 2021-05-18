@@ -10,7 +10,7 @@ var full_contact = false
 var showSettings = false
 
 var speed = 10
-var runSpeed = 40
+var runSpeed = 16
 var currentSpeed = speed
 
 var direction = Vector3()

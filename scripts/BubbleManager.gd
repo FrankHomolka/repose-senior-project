@@ -16,11 +16,11 @@ var newScale = 1
 var scaleSpeed = 0.01
 
 var scalelvl = 1
-const scale1 = Vector3(1, 1, 1) * 20
-const scale2 = Vector3(7, 7, 7) * 20
-const scale3 = Vector3(14, 14, 14) * 20
-const scale4 = Vector3(20, 20, 20) * 20
-const scale5 = Vector3(35, 35, 35) * 20
+const scale1 = Vector3(1, 1, 1) 
+const scale2 = Vector3(75, 75, 75) 
+const scale3 = Vector3(120, 120, 120)
+const scale4 = Vector3(200, 200, 200)
+const scale5 = Vector3(320, 320, 320) 
 
 func  _ready():
 	outside = false

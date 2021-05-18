@@ -28,6 +28,27 @@ remote func _placed_canister():
 func _process(delta):
 	if canInteract && Input.is_action_just_pressed("interact"):
 		if !placed && visible:
+			match(markerSound):
+				'A':
+					$A.play()
+				'A-':
+					$"A-".play()
+				'B':
+					$B.play()
+				'B-':
+					$"B-".play()
+				'D':
+					$D.play()
+				'D-':
+					$"D-".play()
+				'E':
+					$E.play()
+				'E-':
+					$"E-".play()
+				'G':
+					$G.play()
+				'G-':
+					$"G-".play()
 			$InteractText.text = ""
 			$OmniLight.visible = false
 			$MeshInstance.visible = false
