@@ -112,7 +112,7 @@ bus = "Music"
 
 [node name="wind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = -2.014
+volume_db = -5.443
 bus = "Sound"
 
 [node name="UnlockNote" type="TextureRect" parent="."]

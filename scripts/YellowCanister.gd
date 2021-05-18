@@ -30,3 +30,7 @@ func _on_YellowCanister_body_exited(body):
 	if body.name == String(get_tree().get_network_unique_id()):
 		canPickup = false
 		$InteractText.text = ""
+
+
+func _on_YellowCounter_numYellowCanistersCollected():
+	pass # Replace with function body.

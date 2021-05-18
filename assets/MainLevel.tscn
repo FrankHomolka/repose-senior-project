@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/YellowCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/HeightmapTest.gd" type="Script" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://assets/grass.tscn" type="PackedScene" id=20]
 [ext_resource path="res://sounds/bubble.wav" type="AudioStream" id=21]
 [ext_resource path="res://assets/DeadTree.tscn" type="PackedScene" id=22]
-[ext_resource path="res://assets/Rock1.tscn" type="PackedScene" id=23]
 [ext_resource path="res://models/Rock2-2.tscn" type="PackedScene" id=24]
 [ext_resource path="res://models/boat.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scripts/DayNightController.gd" type="Script" id=26]
@@ -43,7 +42,7 @@ sun_energy = 3.75
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-ambient_light_color = Color( 0.0352941, 0, 0.184314, 1 )
+ambient_light_color = Color( 0.533333, 0.580392, 0.615686, 1 )
 ambient_light_energy = 0.4
 ambient_light_sky_contribution = 0.06
 fog_enabled = true
@@ -126,7 +125,7 @@ script = ExtResource( 2 )
 script = ExtResource( 26 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="DayNightController"]
-transform = Transform( 0.655486, 0.754051, 0.0417813, 0.554597, -0.518179, 0.651086, 0.512602, -0.403606, -0.757853, 138.439, 0, 145.294 )
+transform = Transform( 0.655486, 0.754051, 0.0417809, 0.554597, -0.518179, 0.651086, 0.512602, -0.403606, -0.757853, 138.439, 0, 145.294 )
 light_color = Color( 0.87451, 0.643137, 0.392157, 1 )
 light_energy = 2.7
 light_specular = 0.22
@@ -302,11 +301,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="YellowCanister" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.894, -23.5347, 183.494 )
+[node name="Yellow Canisters" type="Spatial" parent="."]
 
-[node name="YellowMarker" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.615, -20.3813, 244.535 )
+[node name="YellowCanister" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 0.217604, 0.779107, 0.587912, 0.963139, -0.269004, 0, 0.158151, 0.566241, -0.808925, 57.1049, 32.8892, 98.4843 )
+
+[node name="YellowCanister2" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 308.404, -22.6094, 192.236 )
+
+[node name="YellowCanister3" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 309.8, -22.6094, 203.783 )
+
+[node name="YellowCanister4" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 257.704, -21.4003, 203.783 )
+
+[node name="YellowCanister5" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( -0.00351474, -0.998784, -0.0491775, -0.071202, 0.0493029, -0.996243, 0.997456, 0, -0.0712887, 500.162, 10.5265, 382.194 )
+
+[node name="YellowCanister6" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 272.793, -21.4003, 192.056 )
+
+[node name="YellowCanister7" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 285.861, -21.4003, 187.893 )
+
+[node name="YellowCanister8" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 292.032, -22.4685, 232.676 )
+
+[node name="YellowCanister9" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 297.361, -21.8684, 223.982 )
+
+[node name="YellowCanister10" parent="Yellow Canisters" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300.901, -21.9952, 211.041 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 9 )]
 
@@ -367,16 +392,16 @@ __meta__ = {
 [node name="GreenCanisters" type="Spatial" parent="."]
 
 [node name="GreenCanister" parent="GreenCanisters" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 218.042, -33.9317, 294.953 )
+transform = Transform( 1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 210.608, -34.9488, 301.759 )
 
 [node name="GreenCanister2" parent="GreenCanisters" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 605.763, 102.662, -114.837 )
+transform = Transform( -0.973151, 0.0630685, 0.22136, -0.102859, 0.74119, -0.663369, -0.205907, -0.668326, -0.714802, 633.583, 113.28, -182.497 )
 
 [node name="GreenCanister3" parent="GreenCanisters" instance=ExtResource( 8 )]
-transform = Transform( 0.104568, -0.403386, -0.909035, 0.0460983, 0.91503, -0.400743, 0.993449, 0, 0.114278, 28.359, -5.8527, 136.821 )
+transform = Transform( 0.656385, -0.689045, -0.307206, 0.408812, 0.667097, -0.62278, 0.63406, 0.283194, 0.719562, -3.80984, 138.127, 18.5575 )
 
 [node name="GreenCanister4" parent="GreenCanisters" instance=ExtResource( 8 )]
-transform = Transform( 0.765899, -0.639749, -0.0641937, 0, 0.0998406, -0.995003, 0.642961, 0.762072, 0.0764678, 273.318, -21.8073, 224.68 )
+transform = Transform( 0.765899, -0.639749, -0.0641937, 0, 0.0998406, -0.995003, 0.642961, 0.762072, 0.0764678, 277.988, -21.4704, 214.527 )
 
 [node name="GreenCanister5" parent="GreenCanisters" instance=ExtResource( 8 )]
 transform = Transform( 0.932216, 0, 0.361901, 0.234724, 0.761142, -0.604622, -0.275458, 0.648585, 0.709549, 415.218, -56.0755, 364.527 )
@@ -384,31 +409,31 @@ transform = Transform( 0.932216, 0, 0.361901, 0.234724, 0.761142, -0.604622, -0.
 [node name="BlueCanisters" type="Spatial" parent="."]
 
 [node name="BlueCanister" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 238.125, -29.6814, 262.897 )
+transform = Transform( -0.894685, 0, 0.446698, 0, 1, 0, -0.446698, 0, -0.894685, 185.313, -43.9286, 425.426 )
 
 [node name="BlueCanister10" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.064, -23.0571, 190.841 )
+transform = Transform( 0.0104644, 0.459316, 0.888211, -0.00541105, 0.888273, -0.459284, -0.999931, 0, 0.0117807, 394.769, -52.2985, 391.764 )
 
 [node name="BlueCanister9" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1447, -0.187791, 206.166 )
+transform = Transform( -0.0163977, 0.830714, -0.556459, 0.0711532, -0.554153, -0.829368, -0.997331, -0.0531935, -0.0500211, 46.6319, -0.699108, 209.876 )
 
 [node name="BlueCanister8" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 279.247, -21.6759, 229.467 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 266.425, -21.6759, 229.467 )
 
 [node name="BlueCanister7" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 0.12561, -0.99208, 0, 0.99208, 0.12561, 454.252, -67.9091, 345.647 )
+transform = Transform( -0.996204, -0.0863617, -0.0109345, -0.0161535, 0.306824, -0.95163, 0.0855392, -0.94784, -0.307054, 447.738, -63.7927, 345.578 )
 
 [node name="BlueCanister6" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 248.301, -30.0804, 288.498 )
+transform = Transform( -0.753208, 0, -0.657783, 0.29459, 0.894107, -0.337326, 0.588129, -0.447853, -0.673448, 252.874, -31.4701, 300.312 )
 
 [node name="BlueCanister5" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 278.679, -22.6351, 183.958 )
+transform = Transform( 1, 0, 0, 0, 0.0847561, -0.996402, 0, 0.996402, 0.0847561, 556.997, 163.762, 8.71561 )
 
 [node name="BlueCanister4" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 363.783, -70.1105, 354.851 )
+transform = Transform( 0.835966, 0.048936, -0.546595, -0.315481, 0.857835, -0.405698, 0.449035, 0.51159, 0.732559, 434.059, -52.3374, 371.198 )
 
 [node name="BlueCanister2" parent="BlueCanisters" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 434.539, 14.9032, 11.0594 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 466.803, 53.872, 11.0594 )
 
 [node name="BlueCanister3" parent="BlueCanisters" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 304.568, -22.2621, 217.091 )
@@ -445,42 +470,162 @@ transform = Transform( 9.99101, 0, -0.423988, 0, 10, 0, 0.423988, 0, 9.99101, -1
 [node name="Rock Type1 03" parent="Rocks" instance=ExtResource( 24 )]
 transform = Transform( 4.26269, 0, 9.04597, 0, 10, 0, -9.04597, 0, 4.26269, -3.13872, -26.0422, 220.794 )
 
+[node name="Rock Type1 04" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( 11.6037, 0, 27.665, 0, 30, 0, -27.665, 0, 11.6037, 170.867, -50.392, 235.434 )
+
+[node name="Rock Type1 05" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( -35.066, 0, 35.6423, 0, 50, 0, -35.6423, 0, -35.066, 301.585, -50.6479, 181.111 )
+
+[node name="Rock Type1 08" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( -2.21934, 0, 49.9507, 0, 50, 0, -49.9507, 0, -2.21934, 352.196, 124.597, -187.329 )
+
+[node name="Rock Type1 11" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( 10.2786, -0.0875226, -17.1564, -0.00441561, -19.9998, 0.0993823, -17.1566, -0.0472878, -10.2785, 344.79, 229.837, -193.535 )
+
+[node name="Rock Type1 12" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( -10.6324, 0.0865225, 16.9394, -0.00441561, -19.9998, 0.0993823, 16.9397, 0.0490937, 10.6323, 208.361, 161.181, -244.818 )
+
+[node name="Rock Type1 09" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( 2.21614, 2.68216, -49.8788, 0.119052, -49.928, -2.67951, -49.9507, 0, -2.21934, 352.196, 129.048, -177.314 )
+
+[node name="Rock Type1 10" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( 2.21614, 2.68216, -49.8788, 5.09333, 49.6555, 2.89645, 49.6905, -5.20936, 1.92765, 352.196, 49.84, -184.562 )
+
+[node name="Rock Type1 06" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( 8.45806, 0, -18.1235, 0, 20, 0, 18.1235, 0, 8.45806, 297.063, 6.78204, 189.395 )
+
+[node name="Rock Type1 07" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( -18.8235, 0, -6.75834, 0, 20, 0, 6.75834, 0, -18.8235, 301.972, -14.4105, 169.47 )
+
 [node name="Park" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 244.919, -30.5685, 282.898 )
 
 [node name="DeadTree" parent="Park" instance=ExtResource( 22 )]
 transform = Transform( 2.75938, 0, 1.1772, 0, 3, 0, -1.1772, 0, 2.75938, -15.3255, -1.48597, 0 )
 
+[node name="DeadTree5" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.75938, 0, 1.1772, 0, 3, 0, -1.1772, 0, 2.75938, 8.01694, -1.48597, 15.488 )
+
+[node name="DeadTree6" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -54.4295, -4.54157, -12.9381 )
+
+[node name="DeadTree11" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -54.4295, -7.0737, 29.823 )
+
+[node name="DeadTree12" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -48.4757, -7.22408, 41.9941 )
+
+[node name="DeadTree13" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -65.7243, -5.2417, 5.35858 )
+
+[node name="DeadTree14" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -49.372, -5.59713, 15.0026 )
+
 [node name="DeadTree4" parent="Park" instance=ExtResource( 22 )]
-transform = Transform( 5.51877, 0, 2.3544, 0, 6, 0, -2.3544, 0, 5.51877, -26.8571, -4.11681, 15.0615 )
+transform = Transform( 5.51877, 0, 2.3544, 0, 6, 0, -2.3544, 0, 5.51877, -34.2357, -4.80802, 21.7437 )
 
 [node name="DeadTree3" parent="Park" instance=ExtResource( 22 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -37.5733, -4.01549, -9.8576 )
 
+[node name="DeadTree7" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.269455, 1.15914, -9.8576 )
+
+[node name="DeadTree8" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -16.2955, -0.477932, -32.5518 )
+
+[node name="DeadTree9" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.41955, 0, -1.77363, 0, 3, 0, 1.77363, 0, 2.41955, -16.2955, -5.52454, 37.2279 )
+
+[node name="DeadTree10" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.45309, 0, 1.72694, 0, 3, 0, -1.72694, 0, 2.45309, -2.21953, -5.30672, 38.6258 )
+
 [node name="DeadTree2" parent="Park" instance=ExtResource( 22 )]
 transform = Transform( 0.795911, 0, -2.89249, 0, 3, 0, 2.89249, 0, 0.795911, -7.55174, -2.81445, 20.8394 )
 
-[node name="Spatial" parent="Park" instance=ExtResource( 23 )]
-transform = Transform( 1, 0, 0, 0, 0.993562, -0.11329, 0, 0.11329, 0.993562, 11.5988, 1.37005, 0.00720215 )
+[node name="Rock Type1 03" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -3.39193, 0, 2.12009, 0, 4, 0, -2.12009, 0, -3.39193, -24.9632, -4.68132, 4.76703 )
+
+[node name="Rock Type1 10" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -0.108755, -0.209214, -3.99304, 0.348724, 3.9788, -0.217966, 3.98329, -0.354044, -0.0899397, -20.9952, -4.06986, -4.09915 )
+
+[node name="Rock Type1 04" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -3.66045, -1.35037, 0.881807, -1.19963, 3.74148, 0.749814, -1.07795, 0.421705, -3.82886, -27.0527, -4.56011, -8.05472 )
+
+[node name="Rock Type1 05" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -2.97913, 0.0977776, -2.66744, -0.17403, 3.9817, 0.340319, 2.66355, 0.369517, -2.96124, -11.5686, -1.91928, -14.2756 )
+
+[node name="Rock Type1 06" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -1.48957, 0.0488888, -1.33372, -0.0870152, 1.99085, 0.17016, 1.33177, 0.184759, -1.48062, -11.5686, -0.518417, -22.7829 )
+
+[node name="Rock Type1 07" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -1.95644, -0.119492, 0.397563, -0.0870152, 1.99085, 0.17016, -0.40591, 0.149157, -1.95269, -0.28653, 1.26448, -22.7829 )
+
+[node name="Rock Type1 08" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -1.1099, -0.301531, -1.63622, -0.310024, 1.96991, -0.152727, 1.63463, 0.168878, -1.13994, -0.28653, 1.26448, -31.9681 )
+
+[node name="Rock Type1 09" parent="Park" instance=ExtResource( 29 )]
+transform = Transform( -1.71753, -0.088289, 1.02093, -0.226639, 1.97595, -0.210402, -0.999362, -0.296377, -1.70688, -1.87067, 0.741415, -26.5644 )
 
 [node name="Ancient Oak" type="Spatial" parent="."]
 
 [node name="DeadTree5" parent="Ancient Oak" instance=ExtResource( 22 )]
-transform = Transform( 7.95912, 0, -28.9249, 0, 30, 0, 28.9249, 0, 7.95912, 607.107, 102.903, -133.576 )
+transform = Transform( 13.2652, 0, -48.2082, 0, 50, 0, 48.2082, 0, 13.2652, 643.057, 102.903, -197.805 )
 
 [node name="Rock Type1 01" parent="Ancient Oak" instance=ExtResource( 27 )]
 transform = Transform( -27.5507, -17.9697, -72.9249, -9.00117, 77.9066, -15.7966, 74.565, 2.765, -28.8517, 654.039, -7.14394, -11.3624 )
 
+[node name="Rock Type1 03" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( -70.3143, -15.2187, -34.9899, -9.00117, 77.9066, -15.7966, 37.0795, -9.94725, -70.1867, 578.23, -34.6339, 60.5349 )
+
+[node name="Rock Type1 04" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( -75.6367, -13.2846, -22.4188, -9.00117, 77.9066, -15.7966, 24.4554, -12.4126, -75.1522, 532.444, -8.40996, 27.2675 )
+
 [node name="Rock Type1 02" parent="Ancient Oak" instance=ExtResource( 27 )]
-transform = Transform( 26.8322, 0, 75.366, 6.16489, 79.7319, -2.19485, -75.1134, 6.54395, 26.7423, 486.252, 3.61721, -148.306 )
+transform = Transform( 26.8322, 0, 75.366, 6.16489, 79.7319, -2.19485, -75.1134, 6.54395, 26.7423, 486.252, 3.61721, -105.357 )
+
+[node name="Rock Type1 05" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( 26.8322, 0, 75.366, 6.16489, 79.7319, -2.19485, -75.1134, 6.54395, 26.7423, 390.006, 42.9514, -94.2729 )
+
+[node name="Rock Type1 06" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( 14.9635, 1.00621, 78.5817, 6.16489, 79.7319, -2.19485, -78.3459, 6.46613, 14.8359, 377.394, -0.279633, -68.463 )
+
+[node name="Rock Type1 07" parent="Ancient Oak" instance=ExtResource( 27 )]
+transform = Transform( 41.6306, -5.09422, -68.1245, 6.16489, 79.7319, -2.19485, 68.0359, -4.10758, 41.8837, 334.865, -4.0743, -122.875 )
 
 [node name="Rock Type2 01" parent="Ancient Oak" instance=ExtResource( 28 )]
 transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 654.865, 72.2429, -63.2995 )
 
+[node name="Rock Type2 02" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 589.955, 47.5244, -10.3243 )
+
+[node name="Rock Type2 07" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( -17.717, 0, -9.27953, 0, 20, 0, 9.27953, 0, -17.717, 600.085, 116.619, -10.3242 )
+
+[node name="Rock Type2 09" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( -17.717, 0, -9.27953, 0, 20, 0, 9.27953, 0, -17.717, 622.103, 79.6776, -55.1341 )
+
+[node name="Rock Type2 10" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( 4.85313, 19.235, 2.5419, 17.0393, -5.47852, 8.92459, 9.27953, 0, -17.717, 615.239, 99.1427, -18.4755 )
+
+[node name="Rock Type2 08" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( -12.7331, 0, 15.4229, 0, 20, 0, -15.4229, 0, -12.7331, 562.94, 142.586, -0.0305972 )
+
+[node name="Rock Type2 03" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 460.973, 68.6062, -174.502 )
+
+[node name="Rock Type2 06" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 430.043, 68.6062, -140.757 )
+
+[node name="Rock Type2 04" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( -11.5314, 68.6585, 7.28226, -58.0517, -13.6384, 36.6605, 37.3768, 0, 59.1859, 490.347, 121.44, -196.861 )
+
+[node name="Rock Type2 05" parent="Ancient Oak" instance=ExtResource( 28 )]
+transform = Transform( -11.5314, 68.6585, 7.28226, -58.0517, -13.6384, 36.6605, 37.3768, 0, 59.1859, 690.796, 121.44, -121.86 )
+
 [node name="Tower" type="Spatial" parent="."]
 
 [node name="Rock Type1 04" parent="Tower" instance=ExtResource( 24 )]
-transform = Transform( 42.064, 0, 90.7228, 0, 100, 0, -90.7228, 0, 42.064, 12.7174, -15.0519, 19.3447 )
+transform = Transform( 42.064, 0, 90.7228, 0, 100, 0, -90.7228, 0, 42.064, 11.5871, -13.8841, 18.9487 )
 
 [node name="Rock Type1 01" parent="Tower" instance=ExtResource( 27 )]
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -8.36956, 124.889 )
@@ -489,22 +634,55 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -8.36956, 124.889 )
 transform = Transform( 2.47654, 0, -39.6922, 0, 42, 0, 19.8461, 0, 4.95307, 84.9844, -10.8043, 67.3619 )
 
 [node name="Rock Type1 02" parent="Tower" instance=ExtResource( 27 )]
-transform = Transform( -7.82844, 0, 18.4042, 0, 30, 0, -18.4042, 0, -7.82844, -15.8721, -6.24966, 107.219 )
+transform = Transform( 17.2382, 0, 24.5529, 0, 30, 0, -24.5529, 0, 17.2382, -27.5222, -11.3385, 109.848 )
 
 [node name="Rock Type1 03" parent="Tower" instance=ExtResource( 29 )]
-transform = Transform( 6.88228, 0, -7.25494, 0, 40, 0, 7.25494, 0, 6.88228, 60.1309, 21.015, 93.4867 )
+transform = Transform( 13.7646, 0, -14.5099, 0, 20, 0, 14.5099, 0, 13.7646, 60.1309, 25.2822, 93.4867 )
+
+[node name="Rock Type1 10" parent="Tower" instance=ExtResource( 29 )]
+transform = Transform( 18.1494, -6.00822, -5.87362, -7.16243, -3.75346, -18.2924, 4.39291, 18.7033, -5.55783, -10.9149, 15.0158, 103.974 )
 
 [node name="Rock Type1 05" parent="Tower" instance=ExtResource( 29 )]
-transform = Transform( 12.9266, 0, 5.07298, 0.429148, 79.8727, -0.486009, -7.59736, 4.51172, 8.60399, 94.7139, -11.866, 85.7281 )
+transform = Transform( -34.4166, 14.1809, -14.6425, -6.64985, 19.3504, 34.3707, 19.2686, 32.0072, -14.2918, 86.9235, -3.63908, 85.7281 )
 
 [node name="Rock Type1 09" parent="Tower" instance=ExtResource( 29 )]
-transform = Transform( 21.8328, 1.12728, 13.7143, 0.858296, 89.8568, -0.972018, -20.557, 4.94893, 14.5249, 142.595, -11.866, 46.6269 )
+transform = Transform( 19.1839, 34.6445, 5.63344, -31.0296, 13.7388, 21.1757, 16.4056, -14.5259, 33.4642, 133.299, -1.46313, 43.0983 )
 
 [node name="Rock Type1 07" parent="Tower" instance=ExtResource( 29 )]
-transform = Transform( 4.89025, 4.05302, 0.242503, 0.135906, 2.13384, -4.9696, -1.03297, 19.4684, 0.494209, 105.879, 48.0879, 68.5581 )
+transform = Transform( 9.34989, -1.30099, 3.29954, 0.634562, 9.76646, 2.0527, -3.48954, -1.70987, 9.21409, 83.5701, 40.0914, 72.1638 )
+
+[node name="Rock Type1 11" parent="Tower" instance=ExtResource( 29 )]
+transform = Transform( -9.01849, -1.21762, 4.14538, -0.593068, 9.85272, 1.60378, -4.2796, 1.20052, -8.95789, 103.526, 44.5448, 71.2926 )
 
 [node name="Rock Type1 08" parent="Tower" instance=ExtResource( 29 )]
-transform = Transform( -4.1583, 8.17063, 1.88045, 1.99905, -0.589324, 4.58062, 1.92674, 18.2454, -0.694146, 118.944, 54.8769, 63.9173 )
+transform = Transform( -8.74148, -4.8558, -0.0883849, -4.66828, 8.35093, 2.91018, -1.33932, 2.58519, -9.56677, 119.801, 50.9302, 69.2732 )
+
+[node name="Rock Type1 12" parent="Tower" instance=ExtResource( 29 )]
+transform = Transform( -7.52893, -1.66219, -6.36807, 3.91067, -8.9123, -2.29728, -5.29357, -4.21994, 7.36004, 130.798, 63.3574, 59.0716 )
+
+[node name="Rock Type1 13" parent="Tower" instance=ExtResource( 29 )]
+transform = Transform( 4.44179, 0.738545, -2.17372, 0.0521171, 4.70055, 1.70356, 2.29517, -1.53603, 4.16807, 127.568, 63.3899, 53.7789 )
+
+[node name="Rock Type2 02" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -2.79487, 0, 19.8038, 0, 20, 0, -19.8038, 0, -2.79487, 61.5826, 60.4698, 46.1375 )
+
+[node name="Rock Type2 03" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 57.9563, 71.1427, 26.7869 )
+
+[node name="Rock Type2 05" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 5.01101, -7.57267, 17.8198, 14.1153, 14.0281, 1.99207, -13.2532, 12.0775, 8.8593, 22.5325, 103.993, 42.3574 )
+
+[node name="Rock Type2 06" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -1.65545, 0.265785, 9.85844, 7.05767, 7.01407, 0.996036, -6.8883, 7.12265, -1.34872, 22.6955, 122.855, 38.6715 )
+
+[node name="Rock Type2 07" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -3.62928, -4.42474, 5.59017, 2.53081, 5.0647, 5.65188, -6.66508, 4.33249, -0.897882, 19.5853, 107.801, 53.1085 )
+
+[node name="Rock Type2 08" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -5.59952, -2.77528, 4.99432, 2.53081, 5.0647, 5.65188, -5.12253, 5.53594, -2.66703, -4.64861, 133.539, 13.521 )
+
+[node name="Rock Type2 04" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -6.21138, 5.4503, 5.63143, 7.05767, 7.01407, 0.996036, -3.40705, 4.59315, -8.20335, 51.6188, 88.9972, 22.8869 )
 
 [node name="Mountains" type="Node" parent="."]
 
@@ -602,10 +780,10 @@ transform = Transform( 0.583274, 0, 1.91306, 0, 2, 0, -1.91306, 0, 0.583274, -37
 transform = Transform( 0.583274, 0, 1.91306, 0, 2, 0, -1.91306, 0, 0.583274, -278.502, 48.2528, -220.312 )
 
 [node name="mountain36" parent="Mountains" instance=ExtResource( 18 )]
-transform = Transform( 2.46157, 0, 0.174662, 0, 2, 0, -0.436655, 0, 0.984628, -45.9837, 37.9458, -311.153 )
+transform = Transform( 2.46157, 0, 0.174662, 0, 2, 0, -0.436655, 0, 0.984628, -45.9837, -42.8371, -284.78 )
 
 [node name="mountain37" parent="Mountains" instance=ExtResource( 18 )]
-transform = Transform( 2.46157, 0, 0.174662, 0, 2, 0, -0.436655, 0, 0.984628, 103.308, 13.9176, -272.969 )
+transform = Transform( 2.46157, 0, 0.174662, 0, 2, 0, -0.436655, 0, 0.984628, 148.54, -101.844, -284.606 )
 
 [node name="mountain29" parent="Mountains" instance=ExtResource( 18 )]
 transform = Transform( -0.502341, 0, 0.86467, 0, 1, 0, -0.86467, 0, -0.502341, -115.783, 190.286, 571.152 )
@@ -654,24 +832,83 @@ directional_shadow_blend_splits = true
 directional_shadow_normal_bias = 1.23
 directional_shadow_bias_split_scale = 0.0
 directional_shadow_max_distance = 2.3
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
+
+[node name="Yellow markers" type="Spatial" parent="."]
+
+[node name="YellowMarker" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.481, -22.0328, 205.893 )
+markerSound = "A"
+
+[node name="YellowMarker2" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 294.765, -21.5985, 215.423 )
+markerSound = "A-"
+
+[node name="YellowMarker3" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 276.317, -21.5841, 198.598 )
+markerSound = "B"
+
+[node name="YellowMarker4" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 289.34, -21.6297, 221.655 )
+markerSound = "B-"
+
+[node name="YellowMarker5" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.779, -22.1316, 195.079 )
+markerSound = "D"
+
+[node name="YellowMarker6" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 283.575, -21.7795, 226.353 )
+markerSound = "D-"
+
+[node name="YellowMarker7" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 291.283, -22.1392, 197.713 )
+markerSound = "E"
+
+[node name="YellowMarker8" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 276.922, -21.7079, 222.678 )
+markerSound = "E-"
+
+[node name="YellowMarker9" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 295.089, -21.6594, 206.266 )
+markerSound = "G"
+
+[node name="YellowMarker10" parent="Yellow markers" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.505, -21.9413, 215.359 )
+markerSound = "G-"
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker3" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker5" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker6" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker2" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker7" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker4" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker9" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker10" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker8" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="value_changed" from="UI/MusicVolumeSlider" to="UI" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="value_changed" from="UI/MusicVolumeSlider" to="AudioManager" method="_on_MusicVolumeSlider_value_changed"]
-[connection signal="value_changed" from="UI/SoundVolumeSlider" to="UI" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/MusicVolumeSlider" to="UI" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="UI/SoundVolumeSlider" to="AudioManager" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/SoundVolumeSlider" to="UI" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_QuitButton_pressed"]
-[connection signal="yellowCanisterCollected" from="YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
-[connection signal="yellowCanisterPlaced" from="YellowMarker" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister2" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister3" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister4" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister5" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister6" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister7" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister8" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister9" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
+[connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister10" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
 [connection signal="body_shape_entered" from="BubbleManager" to="BubbleManager" method="_on_BubbleManager_body_shape_entered"]
 [connection signal="body_shape_exited" from="BubbleManager" to="BubbleManager" method="_on_BubbleManager_body_shape_exited"]
 [connection signal="outOfOxygen" from="BubbleManager" to="." method="_on_BubbleManager_outOfOxygen"]
@@ -690,33 +927,43 @@ directional_shadow_max_distance = 2.3
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister4" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister2" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
 [connection signal="blueCanisterCollected" from="BlueCanisters/BlueCanister3" to="UI/BlueCounter" method="_on_BlueCanister_blueCanisterCollected"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker2" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker3" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker4" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_blueCanisterPlaced"]
 [connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/BlueCounter" method="_on_GreenMarker_blueCanisterPlaced"]
-[connection signal="blueCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_blueCanisterPlaced"]
+[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="BubbleManager" method="_on_GreenMarker_greenCanisterPlaced"]
 [connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="UI/GreenCounter" method="_on_GreenMarker_greenCanisterPlaced"]
-[connection signal="greenCanisterPlaced" from="GreenMarkers/GreenMarker5" to="AudioManager" method="_on_GreenMarker_greenCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker2" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker3" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker4" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker5" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker6" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker7" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker8" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker9" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
+[connection signal="yellowCanisterPlaced" from="Yellow markers/YellowMarker10" to="UI/YellowCounter" method="_on_YellowMarker_yellowCanisterPlaced"]
