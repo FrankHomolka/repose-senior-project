@@ -113,16 +113,16 @@ func _on_GreenMarker_greenCanisterPlaced(markerSound):
 		'Bass':
 			bassLvl += 1
 			bass1.set_volume_db(linear2db(volumeLevel))
-		'Melody':
+		'Violin':
 			violinLvl += 1
 			violin1.set_volume_db(linear2db(volumeLevel))
-		'Percussion':
+		'Guitar':
 			guitarLvl += 1
 			guitar1.set_volume_db(linear2db(volumeLevel))
-		'Harmony':
+		'Piano':
 			pianoLvl += 1
 			piano1.set_volume_db(linear2db(volumeLevel))
-		'Other':
+		'Slide':
 			slideLvl += 1
 			slide1.set_volume_db(linear2db(volumeLevel))
 	$UnlockNote.visible = true
@@ -144,7 +144,7 @@ func _on_GreenMarker_blueCanisterPlaced(markerSound):
 				bass2.set_volume_db(linear2db(0.0))
 				bass3.set_volume_db(linear2db(volumeLevel))
 			bassLvl += 1
-		'Melody':
+		'Violin':
 			if violinLvl == 1:
 				violin1.set_volume_db(linear2db(0.0))
 				violin2.set_volume_db(linear2db(volumeLevel))
@@ -152,7 +152,7 @@ func _on_GreenMarker_blueCanisterPlaced(markerSound):
 				violin2.set_volume_db(linear2db(0.0))
 				violin3.set_volume_db(linear2db(volumeLevel))
 			violinLvl += 1
-		'Percussion':
+		'Guitar':
 			if guitarLvl == 1:
 				guitar1.set_volume_db(linear2db(0.0))
 				guitar2.set_volume_db(linear2db(volumeLevel))
@@ -160,7 +160,7 @@ func _on_GreenMarker_blueCanisterPlaced(markerSound):
 				guitar2.set_volume_db(linear2db(0.0))
 				guitar3.set_volume_db(linear2db(volumeLevel))
 			guitarLvl += 1
-		'Harmony':
+		'Piano':
 			if pianoLvl == 1:
 				piano1.set_volume_db(linear2db(0.0))
 				piano2.set_volume_db(linear2db(volumeLevel))
@@ -168,7 +168,7 @@ func _on_GreenMarker_blueCanisterPlaced(markerSound):
 				piano2.set_volume_db(linear2db(0.0))
 				piano3.set_volume_db(linear2db(volumeLevel))
 			pianoLvl += 1
-		'Other':
+		'Slide':
 			if slideLvl == 1:
 				slide1.set_volume_db(linear2db(0.0))
 				slide2.set_volume_db(linear2db(volumeLevel))

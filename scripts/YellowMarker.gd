@@ -92,7 +92,7 @@ func _on_YellowMarker_body_exited(body):
 
 func _on_YellowCounter_numYellowCanistersCollected(numCanisters):
 	if !placed:
-		numYellowCanisters += 1
+		numYellowCanisters = numCanisters
 		if numCanisters > 0:
 			visible = true
 			$FlowerTest.visible = false

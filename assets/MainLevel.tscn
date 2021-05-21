@@ -106,7 +106,7 @@ params_diffuse_mode = 1
 params_specular_mode = 2
 params_blend_mode = 1
 params_cull_mode = 2
-albedo_color = Color( 0.866667, 0.976471, 1, 0.286275 )
+albedo_color = Color( 0.67451, 0.843137, 0.933333, 0.286275 )
 
 [sub_resource type="SphereMesh" id=9]
 material = SubResource( 8 )
@@ -308,7 +308,7 @@ __meta__ = {
 transform = Transform( 0.217604, 0.779107, 0.587912, 0.963139, -0.269004, 0, 0.158151, 0.566241, -0.808925, 57.1049, 32.8892, 98.4843 )
 
 [node name="YellowCanister2" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 0.0174464, -0.794128, -0.6075, 0.0227967, 0.60775, -0.793801, 0.999588, 0, 0.0287066, 244.317, -11.9166, -63.2291 )
+transform = Transform( -0.995562, -0.0587133, -0.0735431, 0.0227967, 0.60775, -0.793801, 0.0913025, -0.791955, -0.603715, 248.891, -13.3373, -57.2733 )
 
 [node name="YellowCanister3" parent="Yellow Canisters" instance=ExtResource( 11 )]
 transform = Transform( -0.2777, -0.302953, -0.911648, 0.0351218, 0.945137, -0.32478, 0.960026, -0.12221, -0.251824, 589.767, -19.8366, 113.496 )
@@ -332,7 +332,7 @@ transform = Transform( 0.353068, 0.833751, 0.424503, -0.533144, 0.552141, -0.641
 transform = Transform( 1, 0, 0, 0, 0.0706617, -0.9975, 0, 0.9975, 0.0706617, 304.364, -22.3214, 234.031 )
 
 [node name="YellowCanister10" parent="Yellow Canisters" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 0.474426, -0.880295, 0, 0.880295, 0.474426, 234.034, -29.9446, 259.259 )
+transform = Transform( 1, 0, 0, 0, 0.474426, -0.880295, 0, 0.880295, 0.474426, 53.2981, -36.8391, 479.371 )
 
 [node name="AudioManager" parent="." instance=ExtResource( 9 )]
 
@@ -448,25 +448,28 @@ markerSound = "Bass"
 
 [node name="GreenMarker2" parent="GreenMarkers" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 297.224, -61.4285, 247.165 )
-markerSound = "Melody"
+markerSound = "Violin"
 
 [node name="GreenMarker3" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 262.998, -61.3449, 180.119 )
-markerSound = "Harmony"
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 260.492, -61.3449, 179.967 )
+markerSound = "Piano"
 
 [node name="GreenMarker4" parent="GreenMarkers" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 305.758, -61.5915, 180.99 )
-markerSound = "Percussion"
+transform = Transform( 0.904916, 0, -0.42559, 0, 1, 0, 0.42559, 0, 0.904916, 306.461, -61.5915, 179.583 )
+markerSound = "Guitar"
 
 [node name="GreenMarker5" parent="GreenMarkers" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 317.6, -61.1657, 217.36 )
-markerSound = "Other"
+markerSound = "Slide"
 
 [node name="Rocks" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 191.817, -20.193, 194.241 )
 
 [node name="Rock Type1 02" parent="Rocks" instance=ExtResource( 24 )]
 transform = Transform( 9.99101, 0, -0.423988, 0, 10, 0, 0.423988, 0, 9.99101, -149.081, 17.0678, 5.73808 )
+
+[node name="Rock Type1 13" parent="Rocks" instance=ExtResource( 24 )]
+transform = Transform( 14.908, 1.62805, -0.318807, -0.942303, 10.6824, 10.488, 1.36537, -10.4036, 10.7192, -149.081, -28.2143, 187.58 )
 
 [node name="Rock Type1 03" parent="Rocks" instance=ExtResource( 24 )]
 transform = Transform( 4.26269, 0, 9.04597, 0, 10, 0, -9.04597, 0, 4.26269, -3.13872, -26.0422, 220.794 )
@@ -518,6 +521,42 @@ transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -
 
 [node name="DeadTree12" parent="Park" instance=ExtResource( 22 )]
 transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -48.4757, -7.22408, 41.9941 )
+
+[node name="DeadTree15" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 0.179118, 0, -2.99464, 0, 3, 0, 2.99464, 0, 0.179118, -210.979, -6.8715, 63.0817 )
+
+[node name="DeadTree16" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 1.35328, 0, -2.67742, 0, 3, 0, 2.67742, 0, 1.35328, -146.19, -9.27525, 125.622 )
+
+[node name="DeadTree17" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 1.71596, 0, -2.46078, 0, 3, 0, 2.46078, 0, 1.71596, -126.121, -6.97059, 57.7375 )
+
+[node name="DeadTree21" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.7407, 0, -1.22007, 0, 3, 0, 1.22007, 0, 2.7407, -126.121, 23.2344, -114.507 )
+
+[node name="DeadTree23" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.72352, 0.242059, -1.23444, -0.322599, 2.97988, -0.127425, 1.21588, 0.248425, 2.73128, -123.412, -7.15458, -381.583 )
+
+[node name="DeadTree24" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.72352, 0.242059, -1.23444, -0.646015, 2.79521, -0.877186, 1.07939, 1.06217, 2.58973, -86.2635, -5.67876, -372.621 )
+
+[node name="DeadTree25" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.4438, 1.00956, 1.41726, -0.646015, 2.79521, -0.877186, -1.6157, 0.409366, 2.49437, -86.2635, -15.3576, -310.329 )
+
+[node name="DeadTree26" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 2.76635, -0.836742, -0.80444, 0.350123, 2.58387, -1.48359, 1.10665, 1.27416, 2.48029, 17.9394, -0.869043, -304.906 )
+
+[node name="DeadTree22" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 1.77865, 0, -2.41586, 0, 3, 0, 2.41586, 0, 1.77865, 30.0108, -15.8524, 122.75 )
+
+[node name="DeadTree18" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 1.71596, 0, -2.46078, 0, 3, 0, 2.46078, 0, 1.71596, 315.907, -4.40602, -36.16 )
+
+[node name="DeadTree19" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 1.71596, 0, -2.46078, 0, 3, 0, 2.46078, 0, 1.71596, 217.849, -7.81731, -84.3569 )
+
+[node name="DeadTree20" parent="Park" instance=ExtResource( 22 )]
+transform = Transform( 1.71596, 0, -2.46078, 0, 3, 0, 2.46078, 0, 1.71596, 222.716, -34.0071, 12.1132 )
 
 [node name="DeadTree13" parent="Park" instance=ExtResource( 22 )]
 transform = Transform( -0.681129, 0, -2.92165, 0, 3, 0, 2.92165, 0, -0.681129, -65.7243, -5.2417, 5.35858 )
@@ -693,6 +732,36 @@ transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 
 
 [node name="Rock Type2 09" parent="Tower" instance=ExtResource( 28 )]
 transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 201.424, -21.2831, 97.2097 )
+
+[node name="Rock Type2 15" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 26.266, -30.0805, 490.368 )
+
+[node name="Rock Type2 16" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -21.2533, 20.9516, 3.05382, 21.173, 21.0423, 2.98813, -0.0551016, 4.2722, -29.6942, 47.7789, -30.0805, 490.368 )
+
+[node name="Rock Type2 17" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -1.97671, 2.53301, -3.83098, 3.52883, 3.50704, 0.498021, 2.93938, -2.50689, -3.1742, 103.175, -30.0805, 490.368 )
+
+[node name="Rock Type2 20" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.552452, 3.79914, -3.20333, 1.35845, 3.21576, 3.5796, 4.78011, -0.474803, -1.3875, 499.972, -5.51868, 367.615 )
+
+[node name="Rock Type2 22" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -0.552452, 3.79914, -3.20333, 1.35845, 3.21576, 3.5796, 4.78011, -0.474803, -1.3875, 501.647, -27.1454, 334.196 )
+
+[node name="Rock Type2 24" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 5.51674, 9.27074, -10.422, 4.07535, 9.64728, 10.7388, 13.3401, -6.78111, 1.02933, 506.492, -32.3062, 358.776 )
+
+[node name="Rock Type2 23" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 3.74449, 16.1567, -15.9355, 6.24887, 14.7925, 16.4661, 21.8158, -7.01028, -1.98134, 537.281, -57.0205, 334.196 )
+
+[node name="Rock Type2 21" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 5.61967, -7.09924, 4.245, 5.38748, 7.03563, 4.6341, -6.27649, -0.317227, 7.7785, 502.205, -15.2393, 370.608 )
+
+[node name="Rock Type2 18" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( -1.97671, 2.53301, -3.83098, 1.59163, 4.29012, 2.01534, 4.30805, -0.422747, -2.50239, 114.275, -39.686, 449.062 )
+
+[node name="Rock Type2 19" parent="Tower" instance=ExtResource( 28 )]
+transform = Transform( 0.00901711, 4.93266, -0.817786, 2.53783, 0.7001, 4.2508, 4.30805, -0.422747, -2.50239, 124.549, -35.0619, 479.638 )
 
 [node name="Rock Type2 10" parent="Tower" instance=ExtResource( 28 )]
 transform = Transform( -0.929293, 3.72243, -19.6285, 14.1153, 14.0281, 1.99207, 14.1384, -13.7606, -3.27898, 233.437, -43.5551, -33.0298 )
@@ -916,28 +985,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 271.505, -21.9413, 215.359 )
 markerSound = "G-"
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker2" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker4" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker5" method="_on_BlueCounter_numBlueCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker6" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker7" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker2" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker4" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker5" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker8" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numBlueCanistersCollected" from="UI/BlueCounter" to="GreenMarkers/GreenMarker3" method="_on_BlueCounter_numBlueCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker9" method="_on_YellowCounter_numYellowCanistersCollected"]
-[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker3" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker10" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker2" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker3" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker4" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker6" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker5" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker7" method="_on_YellowCounter_numYellowCanistersCollected"]
+[connection signal="numYellowCanistersCollected" from="UI/YellowCounter" to="Yellow markers/YellowMarker8" method="_on_YellowCounter_numYellowCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker2" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker4" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker5" method="_on_GreenCounter_numGreenCanistersCollected"]
-[connection signal="value_changed" from="UI/MusicVolumeSlider" to="UI" method="_on_MusicVolumeSlider_value_changed"]
+[connection signal="numGreenCanistersCollected" from="UI/GreenCounter" to="GreenMarkers/GreenMarker3" method="_on_GreenCounter_numGreenCanistersCollected"]
 [connection signal="value_changed" from="UI/MusicVolumeSlider" to="AudioManager" method="_on_MusicVolumeSlider_value_changed"]
-[connection signal="value_changed" from="UI/SoundVolumeSlider" to="UI" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/MusicVolumeSlider" to="UI" method="_on_MusicVolumeSlider_value_changed"]
 [connection signal="value_changed" from="UI/SoundVolumeSlider" to="AudioManager" method="_on_SoundVolumeSlider_value_changed"]
+[connection signal="value_changed" from="UI/SoundVolumeSlider" to="UI" method="_on_SoundVolumeSlider_value_changed"]
 [connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_QuitButton_pressed"]
 [connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]
 [connection signal="yellowCanisterCollected" from="Yellow Canisters/YellowCanister2" to="UI/YellowCounter" method="_on_YellowCanister_yellowCanisterCollected"]

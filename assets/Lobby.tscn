@@ -451,7 +451,7 @@ __meta__ = {
 [connection signal="playerHosted" from="Lobby" to="LobbyInterface" method="_on_Lobby_playerHosted"]
 [connection signal="playerJoined" from="Lobby" to="LobbyInterface" method="_on_Lobby_playerJoined"]
 [connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonHost" to="Lobby" method="_on_ButtonHost_pressed"]
-[connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonSinglePlayer" to="Lobby" method="_on_ButtonSinglePlayer_pressed"]
 [connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonSinglePlayer" to="LobbyInterface" method="_on_ButtonSinglePlayer_pressed"]
+[connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonSinglePlayer" to="Lobby" method="_on_ButtonSinglePlayer_pressed"]
 [connection signal="pressed" from="LobbyInterface/Bottom Align/ButtonJoin" to="Lobby" method="_on_ButtonJoin_pressed"]
 [connection signal="text_changed" from="LobbyInterface/Bottom Align/IpInput" to="Lobby" method="_on_IpInput_text_changed"]

@@ -72,16 +72,16 @@ func _placed_green_canister():
 			'Bass':
 				var tree = preload('res://assets/Tree1.tscn').instance()
 				add_child(tree)
-			'Melody':
+			'Violin':
 				var tree = preload('res://assets/Tree2.tscn').instance()
 				add_child(tree)
-			'Percussion':
+			'Guitar':
 				var tree = preload('res://assets/Tree3.tscn').instance()
 				add_child(tree)
-			'Harmony':
+			'Piano':
 				var tree = preload('res://assets/Tree6.tscn').instance()
 				add_child(tree)
-			'Other':
+			'Slide':
 				var tree = preload('res://assets/Tree7.tscn').instance()
 				add_child(tree)
 

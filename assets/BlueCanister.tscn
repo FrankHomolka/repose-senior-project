@@ -36,7 +36,10 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
 shape = SubResource( 4 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-light_color = Color( 0, 0.847059, 0.890196, 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624075, -0.6625 )
+light_color = Color( 0.156863, 0.705882, 1, 1 )
+light_energy = 5.22
+omni_range = 15.0
 
 [node name="InteractText" parent="." instance=ExtResource( 1 )]
 valign = 1
